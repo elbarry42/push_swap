@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: larchimb <larchimb@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 19:31:38 by larchimb          #+#    #+#             */
-/*   Updated: 2025/11/17 19:31:57 by larchimb         ###   ########lyon.fr   */
+/*   Updated: 2026/01/07 16:56:01 by elbarry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <stdlib.h>
 
 size_t	ft_strlen(const char *str)

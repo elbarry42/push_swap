@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: larchimb <larchimb@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 17:14:01 by larchimb          #+#    #+#             */
-/*   Updated: 2025/11/07 16:07:34 by larchimb         ###   ########lyon.fr   */
+/*   Updated: 2026/01/07 16:53:50 by elbarry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,4 @@ int	ft_isdigit(int c)
 	else
 		return (0);
 }
-/*
-#include <stdio.h>
-#include <ctype.h>
 
-int     main(int ac, char **av)
-{
-	if (ac != 2)
-		return (1);
-	printf("%d", isdigit(*av[1]));
-	printf("\nft : %d", ft_isdigit(*av[1]));
-
-}
-*/

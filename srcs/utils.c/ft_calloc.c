@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: larchimb <larchimb@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 10:12:44 by larchimb          #+#    #+#             */
-/*   Updated: 2025/11/18 16:44:32 by larchimb         ###   ########lyon.fr   */
+/*   Updated: 2026/01/07 16:58:21 by elbarry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdlib.h>
-#include <stdint.h>
-#include "libft.h"
+
+#include "../../include/libft.h"
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
@@ -25,18 +24,4 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	ft_bzero(ptr, nmemb * size);
 	return (ptr);
 }
-/*
-#include <stdio.h>
 
-int	main(int ac, char **av)
-{
-	size_t	nbr, size;
-
-	if (ac != 3)
-		return (1);
-	nbr = (size_t)atoi(av[1]);
-	size = (size_t)atoi(av[2]);
-	printf("%p", calloc(nbr, size));
-	printf("\nft :\n%p", ft_calloc(nbr, size));
-}
-*/

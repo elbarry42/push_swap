@@ -3,13 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: larchimb <larchimb@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 11:38:16 by larchimb          #+#    #+#             */
-/*   Updated: 2025/11/19 11:38:20 by larchimb         ###   ########lyon.fr   */
+/*   Updated: 2026/01/07 16:56:59 by elbarry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdlib.h>
+
+#include "../../include/libft.h"
 
 int	len_for_int(int n)
 {
@@ -74,12 +75,3 @@ char	*ft_itoa(int n)
 	else
 		return (put_npositif_in_ptr(ptr, n, len));
 }
-/*
-#include <stdio.h>
-
-int	main()
-{
-	int	n = 0;
-	printf("%s", ft_itoa(n));
-}
-*/
