@@ -6,46 +6,49 @@
 /*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 14:06:37 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/06 18:02:16 by elbarry          ###   ########.fr       */
+/*   Updated: 2026/01/08 14:58:40 by elbarry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-void	rotate_stack(t_stack *s)
+void	ra(t_stack **a)
 {
-	t_node	*first;
-	t_node	*last;
+	t_stack	*first;
+	t_stack	*last;
 
-	if (s->size < 2)
-		return ;
-	
-	first = s->top;
-	s->top = first->next;
-	
-	last = s->top;
+	first = *a;
+	last = *a;
 	while (last->next)
 		last = last->next;
-
+	*a = first->next;
+	(*a)->prev = NULL;
 	last->next = first;
-	first->next =NULL;
-}
-
-void	ra(t_ps *ps)
-{
-	rotate_stack(&ps->stack_a);
+	first->prev = last;
+	first->next = NULL;
 	write(1, "ra\n", 3);
 }
 
-void	rb(t_ps *ps)
+void	rb(t_stack **b)
 {
-	rotate_stack(&ps->stack_b);
+	t_stack	*first;
+	t_stack	*last;
+
+	first = *b;
+	last = *b;
+	while (last->next)
+		last = last->next;
+	*b = first->next;
+	(*b)->prev = NULL;
+	last->next = first;
+	first->prev = last;
+	first->next = NULL;
 	write(1, "rb\n", 3);
 }
 
-void	rr(t_ps *ps)
+void	rr(t_stack **a, t_stack **b)
 {
-	rotate_stack(&ps->stack_a);
-	rotate_stack(&ps->stack_b);
+	ra(a);
+	rb(b);
 	write(1, "rr\n", 3);
 }

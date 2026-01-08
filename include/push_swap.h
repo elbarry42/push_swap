@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 17:26:03 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/08 11:57:22 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/08 13:55:16 by elbarry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,6 @@
 
 #include <unistd.h>
 #include <stdlib.h>
-
-// typedef struct s_node
-// {
-// 	int				value;
-// 	//int				index;
-// 	struct s_node	*prev;
-// 	struct s_node	*next;
-// } t_node;
 
 typedef struct s_stack
 {
