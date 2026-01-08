@@ -6,7 +6,7 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 16:23:13 by larchimb          #+#    #+#             */
-/*   Updated: 2026/01/08 15:14:11 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/08 16:10:06 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,15 +65,7 @@ int	check_data(int argc, char **argv)
 			i++;
 		}
 		else
-		{
-			if (i == 2 && check_number(ft_split(argv[i - 1], ' ')) == 1)
-				return (0);
-			else if (i == argc - 2 && check_number(ft_split(argv[i + 1], ' ')) == 1)
-				return (0);
-			else if (argc >= 4 && i > 2 && i < argc - 2)
-				return(0);
 			i++;
-		}
 	}
 	return (1);
 }
