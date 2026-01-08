@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 17:06:25 by larchimb          #+#    #+#             */
-/*   Updated: 2026/01/08 16:09:33 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/08 18:20:00 by elbarry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ char	*check_flags(char **argv,  int argc, int *bench, int *algo)
 	return (algo_type);
 }
 
-int	main(int argc, char **argv)
+int	parsing(int argc, char **argv)
 {
 	int		i;
 	char	*algo_type;
@@ -89,4 +89,5 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	ft_printf("%s\nbench = %d", algo_type, bench);
+	return(1);
 }
