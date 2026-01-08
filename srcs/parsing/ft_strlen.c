@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/05 17:26:03 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/08 13:55:16 by elbarry          ###   ########.fr       */
+/*   Created: 2025/11/17 19:31:38 by larchimb          #+#    #+#             */
+/*   Updated: 2026/01/07 16:56:01 by elbarry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
-
-#include <unistd.h>
 #include <stdlib.h>
 
-typedef struct s_stack
+size_t	ft_strlen(const char *str)
 {
-	int		value;
-	struct	s_stack	*prev;
-	struct	s_stack	*next;
-} t_stack;
+	size_t	i;
 
-typedef struct s_push_swap
-{
-	t_stack *stack_a;
-	t_stack	*stack_b;
-} t_ps;
-
-#endif
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}

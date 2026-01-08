@@ -6,37 +6,46 @@
 /*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:21:45 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/06 16:42:40 by elbarry          ###   ########.fr       */
+/*   Updated: 2026/01/08 14:16:20 by elbarry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-void	push_stack(t_stack *from, t_stack *to)
+void	pa(t_stack **a, t_stack **b)
 {
-	t_node	*tmp;
+	t_stack *tmp;
 
-	if (from->size == 0)
+	if (!b || !*b)
 		return ;
-	
-	tmp = from->top;
-	from->top = tmp->next;
 
-	tmp->next = to->top;
-	to->top = tmp;
-	
-	from->size--;
-	to->size++;
-}
-
-void	pa(t_ps *ps)
-{
-	push_stack(&ps->stack_b, &ps->stack_a);
+	tmp = *b;
+	*b = tmp->next;
+	if (*b)
+		(*b)->prev = NULL;
+	tmp->prev = NULL;
+	tmp->next = *a;
+	if(*a)
+		(*a)->prev = tmp;
+	*a = tmp;
 	write(1, "pa\n", 3);
 }
 
-void	pb(t_ps *ps)
+void	pb(t_stack **a, t_stack **b)
 {
-	push_stack(&ps->stack_a, &ps->stack_b);
+	t_stack	*tmp;
+
+	if (!a || !*a)
+		return ;
+	
+	tmp = *a;
+	*a = tmp->next;
+	if (*a)
+		(*a)->prev = NULL;
+	tmp->prev =NULL;
+	tmp->next = *b;
+	if(*b)
+		(*b)->prev = tmp;
+	*b = tmp;
 	write(1, "pb\n", 3);
 }

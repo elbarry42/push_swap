@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/05 17:26:03 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/08 13:55:16 by elbarry          ###   ########.fr       */
+/*   Created: 2025/11/10 10:27:43 by larchimb          #+#    #+#             */
+/*   Updated: 2026/01/07 16:53:38 by elbarry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
-
-#include <unistd.h>
 #include <stdlib.h>
 
-typedef struct s_stack
+void	*ft_bzero(void *s, size_t n)
 {
-	int		value;
-	struct	s_stack	*prev;
-	struct	s_stack	*next;
-} t_stack;
+	unsigned char	*ptr;
+	size_t			i;
 
-typedef struct s_push_swap
-{
-	t_stack *stack_a;
-	t_stack	*stack_b;
-} t_ps;
-
-#endif
+	i = 0;
+	ptr = (unsigned char *)s;
+	while (i < n)
+	{
+		ptr[i] = '\0';
+		i++;
+	}
+	return (s);
+}
