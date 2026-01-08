@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 16:23:13 by larchimb          #+#    #+#             */
-/*   Updated: 2026/01/07 16:55:18 by elbarry          ###   ########.fr       */
+/*   Updated: 2026/01/08 15:14:11 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,15 +51,29 @@ int	check_number(char **array)
 	return (1);
 }
 
-int	check_data(int argc, char **argv, int i)
+int	check_data(int argc, char **argv)
 {
-	if (argc == i)
-		return (0);
+	int	i;
+
+	i = 1;
 	while (i < argc)
 	{
-		if (check_number(ft_split(argv[i], ' ')) == 0)
-			return (0);
-		i++;
+		if (which_flags(argv[i]) == NULL)
+		{
+			if (check_number(ft_split(argv[i], ' ')) == 0)
+				return (0);
+			i++;
+		}
+		else
+		{
+			if (i == 2 && check_number(ft_split(argv[i - 1], ' ')) == 1)
+				return (0);
+			else if (i == argc - 2 && check_number(ft_split(argv[i + 1], ' ')) == 1)
+				return (0);
+			else if (argc >= 4 && i > 2 && i < argc - 2)
+				return(0);
+			i++;
+		}
 	}
 	return (1);
 }
