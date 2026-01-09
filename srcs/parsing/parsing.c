@@ -6,7 +6,7 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 17:06:25 by larchimb          #+#    #+#             */
-/*   Updated: 2026/01/08 16:09:33 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/09 11:17:28 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,65 +28,75 @@ char	*which_flags(char *str)
 		return (NULL);
 }
 
-int	check_flag_placement(char **argv, int argc, int i)
+char	*flags_validation(char *algo_type, int algo, int bench)
 {
-	if (i == 2 && check_number(ft_split(argv[i - 1], ' ')) == 1)
-		return (0);
-	else if (i == argc - 2 && check_number(ft_split(argv[i + 1], ' ')) == 1)
-		return (0);
-	else if (argc >= 4 && i > 2 && i < argc - 2)
-		return(0);
-	else
-		return(1);
+	if (bench >= 2 || algo >= 2)
+		return (NULL);
+	if (algo_type == NULL)
+		algo_type = "adaptive";
+	return (algo_type);
 }
 
-char	*check_flags(char **argv,  int argc, int *bench, int *algo)
+int	check_flag_placement(char **argv, int argc, int i)
+{
+	if (i == 2 && check_number(ft_split(argv[i - 1], ' '), &i) == 1)
+		return (0);
+	else if (i == argc - 2 && check_number(ft_split(argv[i + 1], ' '), &i) == 1)
+		return (0);
+	else if (argc >= 4 && i > 2 && i < argc - 2)
+		return (0);
+	else
+		return (1);
+}
+
+char	*check_flags(char **argv, int argc, int *bench)
 {
 	int		i;
+	int		algo;
 	char	*algo_type;
 
 	i = 1;
+	algo = 0;
 	algo_type = NULL;
 	while (i < argc)
 	{
 		if (ft_strncmp(argv[i], "--bench", 7) == 0)
-		{
 			*bench = *bench + 1;
-		}
 		else if (which_flags(argv[i]) != NULL)
 		{
 			algo_type = which_flags(argv[i]);
-			*algo += 1;
+			algo += 1;
 			if (check_flag_placement(argv, argc, i) == 0)
-				return(NULL);
+				return (NULL);
 		}
 		i += 1;
 	}
-	if (*bench >= 2 || *algo >= 2)
-		return (NULL);
-	if (algo_type == NULL)
-		return("adaptive");
-	return (algo_type);
+	return (flags_validation(algo_type, algo, *bench));
 }
 
 int	main(int argc, char **argv)
 {
 	int		i;
 	char	*algo_type;
+	int		counter;
 	int		bench;
-	int		algo;
+	int		*test;
 
-	i = 1;
-	algo = 0;
+	i = 0;
 	bench = 0;
 	algo_type = NULL;
 	if (argc == 1)
 		return (1);
-	algo_type = check_flags(argv, argc, &bench, &algo);
-	if (check_data(argc, argv) == 0 || algo_type == NULL)
+	algo_type = check_flags(argv, argc, &bench);
+	counter = check_data(argc, argv);
+	test = put_in_tmp_array(argv, argc, counter);
+	if (counter == 0 || algo_type == NULL || test == NULL)
 	{
 		write(2, "Error\n", 6);
 		return (0);
 	}
-	ft_printf("%s\nbench = %d", algo_type, bench);
+	while (i < counter)
+		ft_printf("%d\n", test[i++]);
+	ft_printf("%s\nbench : %d", algo_type, bench);
+	free(test);
 }

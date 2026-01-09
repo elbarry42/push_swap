@@ -6,7 +6,7 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 16:04:56 by larchimb          #+#    #+#             */
-/*   Updated: 2026/01/08 13:18:00 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/08 18:38:41 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,9 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 int		ft_atoi(const char *ptr);
 int		ft_atoi_check(const char *ptr);
 int		call_free(char **array);
-int		check_number(char **array);
+int		check_number(char **array, int *counter);
 int		check_data(int argc, char **argv);
+int		*put_in_tmp_array(char **argv, int argc, int counter);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 size_t	ft_strlen(const char *str);
 char	*ft_strchr(const char *s, int c);
