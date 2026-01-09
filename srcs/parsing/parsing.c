@@ -6,7 +6,7 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 17:06:25 by larchimb          #+#    #+#             */
-/*   Updated: 2026/01/09 11:17:28 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/09 12:00:22 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ char	*check_flags(char **argv, int argc, int *bench)
 	return (flags_validation(algo_type, algo, *bench));
 }
 
-int	main(int argc, char **argv)
+int	parsing(int argc, char **argv)
 {
 	int		i;
 	char	*algo_type;
