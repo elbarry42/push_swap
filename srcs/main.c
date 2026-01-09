@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 15:55:57 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/08 19:09:03 by elbarry          ###   ########.fr       */
+/*   Updated: 2026/01/09 15:19:35 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,13 @@ int main(int argc, char **argv)
         return (0);
     values = parsing(argc, argv);
     if (!values)
-    {
-        write(2, "Error\n", 6);
-        return (1);
-    }
+		return (1);
     ps.stack_a = NULL;
     ps.stack_b = NULL;
     count = argc - 1;
     i = 0;
     while (i < count)
-    {
-        stack_add_back(&ps.stack_a, stack_new(values[i]));
-        i++;
-    }
+        stack_add_back(&ps.stack_a, stack_new(values[i++]));
     free(values);
     return (0);
 }

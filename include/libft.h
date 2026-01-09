@@ -6,7 +6,7 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 16:04:56 by larchimb          #+#    #+#             */
-/*   Updated: 2026/01/08 18:38:41 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/09 14:22:05 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int		call_free(char **array);
 int		check_number(char **array, int *counter);
 int		check_data(int argc, char **argv);
 int		*put_in_tmp_array(char **argv, int argc, int counter);
+int		check_duplicate_number(int *array, char **array_alpha, int *i_array);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 size_t	ft_strlen(const char *str);
 char	*ft_strchr(const char *s, int c);
@@ -45,7 +46,8 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-char	*which_flags(char *str);
+char	*if_and_which_flags(char *str);
+char	*check_flags(char **argv, int argc, int *bench);
 void	*ft_memset(void *s, int c, size_t n);
 void	*ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);

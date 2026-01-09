@@ -3,106 +3,63 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 17:06:25 by larchimb          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2026/01/09 12:00:22 by larchimb         ###   ########.fr       */
-=======
-/*   Updated: 2026/01/08 18:20:00 by elbarry          ###   ########.fr       */
->>>>>>> b483c31db3cfd2e5a42b994f9a2398e92777cd6e
+/*   Updated: 2026/01/09 15:30:11 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
-char	*which_flags(char *str)
+int	*is_error(int *array)
 {
-	if (ft_strncmp(str, "--adaptive", 10) == 0)
-		return ("adaptive");
-	else if (ft_strncmp(str, "--simple", 8) == 0)
-		return ("simple");
-	else if (ft_strncmp(str, "--medium", 8) == 0)
-		return ("medium");
-	else if (ft_strncmp(str, "--complex", 9) == 0)
-		return ("complex");
-	else if (ft_strncmp(str, "--bench", 7) == 0)
-		return ("bench");
-	else
-		return (NULL);
+	write(2, "Error\n", 6);
+	free(array);
+	return (NULL);
 }
-
-char	*flags_validation(char *algo_type, int algo, int bench)
+int	*put_in_tmp_array(char **argv, int argc, int counter)
 {
-	if (bench >= 2 || algo >= 2)
-		return (NULL);
-	if (algo_type == NULL)
-		algo_type = "adaptive";
-	return (algo_type);
-}
-
-int	check_flag_placement(char **argv, int argc, int i)
-{
-	if (i == 2 && check_number(ft_split(argv[i - 1], ' '), &i) == 1)
-		return (0);
-	else if (i == argc - 2 && check_number(ft_split(argv[i + 1], ' '), &i) == 1)
-		return (0);
-	else if (argc >= 4 && i > 2 && i < argc - 2)
-		return (0);
-	else
-		return (1);
-}
-
-char	*check_flags(char **argv, int argc, int *bench)
-{
+	int		*array;
 	int		i;
-	int		algo;
-	char	*algo_type;
+	int		i_array;
+	char	**array_alpha;
 
 	i = 1;
-	algo = 0;
-	algo_type = NULL;
+	i_array = 0;
+	array = malloc(sizeof(int) * (counter));
+	if (!array)
+		return (0);
 	while (i < argc)
 	{
-		if (ft_strncmp(argv[i], "--bench", 7) == 0)
-			*bench = *bench + 1;
-		else if (which_flags(argv[i]) != NULL)
-		{
-			algo_type = which_flags(argv[i]);
-			algo += 1;
-			if (check_flag_placement(argv, argc, i) == 0)
+		array_alpha = ft_split(argv[i], ' ');
+		if (if_and_which_flags(argv[i]) == NULL)
+			if (check_duplicate_number(array, array_alpha, &i_array) == 0)
 				return (NULL);
-		}
-		i += 1;
+		call_free(array_alpha);
+		i++;
 	}
-	return (flags_validation(algo_type, algo, *bench));
+	return (array);
 }
 
-int	parsing(int argc, char **argv)
+int	*parsing(int argc, char **argv)
 {
-	int		i;
 	char	*algo_type;
 	int		counter;
 	int		bench;
-	int		*test;
+	int		*array;
 
-	i = 0;
 	bench = 0;
 	algo_type = NULL;
+	array = NULL;
 	if (argc == 1)
 		return (1);
 	algo_type = check_flags(argv, argc, &bench);
 	counter = check_data(argc, argv);
-	test = put_in_tmp_array(argv, argc, counter);
-	if (counter == 0 || algo_type == NULL || test == NULL)
-	{
-		write(2, "Error\n", 6);
-		return (0);
-	}
-	while (i < counter)
-		ft_printf("%d\n", test[i++]);
-	ft_printf("%s\nbench : %d", algo_type, bench);
-	free(test);
-	ft_printf("%s\nbench = %d", algo_type, bench);
-	return(1);
+	if (counter == 0 || algo_type == NULL)
+		return (is_error(array));
+	array = put_in_tmp_array(argv, argc, counter);
+	if (array == NULL)
+		return (is_error(array));
+	return (array);
 }

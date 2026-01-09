@@ -6,7 +6,7 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 16:23:13 by larchimb          #+#    #+#             */
-/*   Updated: 2026/01/09 12:05:09 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/09 14:09:53 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	check_data(int argc, char **argv)
 	counter = 0;
 	while (i < argc)
 	{
-		if (which_flags(argv[i]) == NULL)
+		if (if_and_which_flags(argv[i]) == NULL)
 		{
 			if (check_number(ft_split(argv[i], ' '), &counter) == 0)
 				return (0);
@@ -70,48 +70,28 @@ int	check_data(int argc, char **argv)
 	return (counter);
 }
 
-int	check_duplicate_number(int *array, int value, int index)
+int	check_duplicate_number(int *array, char **array_alpha, int *i_array)
 {
-	while (index >= 1)
-	{
-		if (array[--index] == value)
-			return (0);
-	}
-	return (1);
-}
+	int	index;
+	int	j;
 
-int	*put_in_tmp_array(char **argv, int argc, int counter)
-{
-	int		*array;
-	int		i;
-	int		j;
-	int		i_array;
-	char	**array_alpha;
-
-	i = 1;
-	i_array = 0;
-	array = malloc(sizeof(int) * (counter));
-	if (!array)
-		return (0);
-	while (i < argc)
+	index = *i_array;
+	j = 0;
+	while (array_alpha[j])
 	{
-		j = 0;
-		array_alpha = ft_split(argv[i], ' ');
-		if (which_flags(argv[i]) == NULL)
+		array[*i_array] = ft_atoi(array_alpha[j]);
+		while (index >= 1)
 		{
-			while (array_alpha[j])
+			if (array[--index] == ft_atoi(array_alpha[j]))
 			{
-				array[i_array] = ft_atoi(array_alpha[j]);
-				if (check_duplicate_number(array, ft_atoi(array_alpha[j++]), i_array++) == 0)
-				{
-					call_free(array_alpha);
-					free(array);
-					return (NULL);
-				}
+				call_free(array_alpha);
+				free(array);
+				return (0);
 			}
 		}
-		call_free(array_alpha);
-		i++;
+		*i_array += 1;
+		index = *i_array;
+		j++;
 	}
-	return (array);
+	return (1);
 }
