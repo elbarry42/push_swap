@@ -6,7 +6,7 @@
 /*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 17:26:03 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/08 13:55:16 by elbarry          ###   ########.fr       */
+/*   Updated: 2026/01/12 10:22:48 by elbarry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 typedef struct s_stack
 {
 	int		value;
+	int		index;
 	struct	s_stack	*prev;
 	struct	s_stack	*next;
 } t_stack;
