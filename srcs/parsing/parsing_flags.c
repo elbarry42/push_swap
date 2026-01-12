@@ -6,7 +6,7 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 14:00:22 by larchimb          #+#    #+#             */
-/*   Updated: 2026/01/09 14:22:19 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/12 17:01:30 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 char	*if_and_which_flags(char *str)
 {
-	if (ft_strncmp(str, "--adaptive", 10) == 0)
+	if (ft_strncmp(str, "--adaptive", 11) == 0)
 		return ("adaptive");
-	else if (ft_strncmp(str, "--simple", 8) == 0)
+	else if (ft_strncmp(str, "--simple", 9) == 0)
 		return ("simple");
-	else if (ft_strncmp(str, "--medium", 8) == 0)
+	else if (ft_strncmp(str, "--medium", 9) == 0)
 		return ("medium");
-	else if (ft_strncmp(str, "--complex", 9) == 0)
+	else if (ft_strncmp(str, "--complex", 10) == 0)
 		return ("complex");
-	else if (ft_strncmp(str, "--bench", 7) == 0)
+	else if (ft_strncmp(str, "--bench", 8) == 0)
 		return ("bench");
 	else
 		return (NULL);

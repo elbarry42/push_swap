@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 15:36:21 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/08 18:51:43 by elbarry          ###   ########.fr       */
+/*   Updated: 2026/01/12 18:21:37 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,14 @@ t_stack *stack_new(int value)
 void	stack_add_back(t_stack **stack, t_stack *new)
 {
 	t_stack	*last;
+	static int	index = 0;
 
 	if (!stack || !new)
 		return ;
 	if (!*stack)
 	{
 		*stack = new;
+		new->index = index++;
 		return ;
 	}
 	last = *stack;
@@ -43,5 +45,7 @@ void	stack_add_back(t_stack **stack, t_stack *new)
 		last = last->next;
 	last->next = new;
 	new->prev = last;
+	new->index = index++;
+
 }
 

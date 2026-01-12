@@ -6,7 +6,7 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 15:55:57 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/12 14:21:06 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/12 18:32:16 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int main(int argc, char **argv)
     t_ps   	ps;
 	t_pars	*values;
     int    	i;
-    // int    	count;
 
 	i = 0;
     if (argc < 2)
@@ -40,19 +39,20 @@ int main(int argc, char **argv)
 		return (1);
 	ps.stack_a = NULL;
     ps.stack_b = NULL;
-    // count = argc - 1;
     i = 0;
     while (i < values->counter)
 	{
         stack_add_back(&ps.stack_a, stack_new(values->array[i++]));
 	}
-	i = 0;
-	while (i < values->counter)
-	{
-		ft_printf("%d\n", ps.stack_a->value);
-		ra(&ps.stack_a);
-		i++;
-	}
+	// i = 0;
+	// while (i < values->counter)
+	// {
+	// 	ft_printf("%d\n", ps.stack_a->value);
+	// 	ft_printf("%d\n", ps.stack_a->index);
+	// 	ra(&ps.stack_a);
+	// 	i++;
+	// }
+	// complex(ps, values);
 	if (values->array)
 		free(values->array);
 	free(values);

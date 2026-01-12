@@ -6,7 +6,7 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 17:26:03 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/12 15:07:06 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/12 17:17:34 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,6 @@ typedef struct s_push_swap
 t_pars	*parsing(int argc, char **argv);
 t_stack *stack_new(int value);
 void	stack_add_back(t_stack **stack, t_stack *new);
+void	complex(t_ps ps, t_pars *values);
 void	ra(t_stack **a);
 #endif
