@@ -6,7 +6,7 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 15:36:21 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/12 18:21:37 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/14 13:30:00 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_stack *stack_new(int value)
     node = malloc(sizeof(t_stack));
     if (!node)
         return (NULL);
-
+	
     node->value = value;
     node->prev = NULL;
     node->next = NULL;

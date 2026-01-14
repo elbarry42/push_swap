@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:21:45 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/08 14:16:20 by elbarry          ###   ########.fr       */
+/*   Updated: 2026/01/14 13:28:42 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
+
+				#include "../../include/libft.h"
 
 void	pa(t_stack **a, t_stack **b)
 {
@@ -37,7 +39,6 @@ void	pb(t_stack **a, t_stack **b)
 
 	if (!a || !*a)
 		return ;
-	
 	tmp = *a;
 	*a = tmp->next;
 	if (*a)
@@ -48,4 +49,5 @@ void	pb(t_stack **a, t_stack **b)
 		(*b)->prev = tmp;
 	*b = tmp;
 	write(1, "pb\n", 3);
+
 }

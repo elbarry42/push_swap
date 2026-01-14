@@ -6,7 +6,7 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 15:55:57 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/12 18:32:16 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/13 18:53:21 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int main(int argc, char **argv)
 	// 	ra(&ps.stack_a);
 	// 	i++;
 	// }
-	// complex(ps, values);
+	complex(ps);
 	if (values->array)
 		free(values->array);
 	free(values);
