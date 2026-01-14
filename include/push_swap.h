@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 17:26:03 by elbarry           #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2026/01/13 17:45:17 by larchimb         ###   ########.fr       */
-=======
-/*   Updated: 2026/01/13 17:07:05 by elbarry          ###   ########.fr       */
->>>>>>> b588d3f1e8c08324c2a1547ad52a1ff00442f869
+/*   Updated: 2026/01/14 13:44:01 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +41,11 @@ typedef struct s_push_swap
 t_pars	*parsing(int argc, char **argv);
 t_stack *stack_new(int value, int index);
 void	stack_add_back(t_stack **stack, t_stack *new);
-void	complex(t_ps ps);
 int		stack_size(t_stack *stack);
 
 /* algorithms */
 void	medium(t_ps *ps);
-void	complex(t_ps ps, t_pars *values);
+void	complex(t_ps ps);
 
 /* swap */
 void	swap(t_stack **stack);

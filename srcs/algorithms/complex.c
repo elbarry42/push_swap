@@ -6,7 +6,7 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 15:55:03 by larchimb          #+#    #+#             */
-/*   Updated: 2026/01/14 13:29:08 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/14 13:47:51 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,16 +48,16 @@ void	intialize_index(t_ps ps)
 	}
 }
 
-void	switch_nodes(t_ps ps, t_stack *stack, int i, int j)
+void	switch_nodes_a(t_ps ps, int i, int j)
 {
 	// ft_printf("stacka\nadresse : %p\nvaleur : %d\n index : %d\n", ps.stack_a, ps.stack_a->value, ps.stack_a->index);
 	while (ps.stack_a->index != i)
-		rotate(&stack);
-	pb(&stack, &ps.stack_b);
+		rotate(&ps.stack_a);
+	pb(&ps.stack_a, &ps.stack_b);
 	while (ps.stack_a->index != j)
-		rotate(&stack);
+		rotate(&ps.stack_a);
 	pa(&ps.stack_a, &ps.stack_b);
-	rotate(&stack);
+	rotate(&ps.stack_a);
 	pb(&ps.stack_a, &ps.stack_b);
 }
 
@@ -119,7 +119,7 @@ void	hoare_partition(t_ps ps, t_stack *stack)
 				j--;
 			else
 			{
-				switch_nodes(ps, ps.stack_a, i, j);
+				switch_nodes_a(ps, i, j);
 				j--;
 			}
 		}
