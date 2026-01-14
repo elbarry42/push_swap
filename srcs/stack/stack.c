@@ -6,22 +6,22 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 15:36:21 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/14 13:30:00 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/14 13:35:51 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
 #include "../../include/push_swap.h"
 
-t_stack *stack_new(int value)
+t_stack *stack_new(int value, int index)
 {
     t_stack *node;
 
     node = malloc(sizeof(t_stack));
     if (!node)
         return (NULL);
-	
+
     node->value = value;
+	node->index = index;
     node->prev = NULL;
     node->next = NULL;
     return (node);
