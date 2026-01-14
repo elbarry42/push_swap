@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 15:55:57 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/13 18:53:21 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/14 13:51:14 by elbarry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,38 +25,50 @@ void	free_stack(t_stack *stack)
 	}
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-    t_ps   	ps;
+	t_ps	ps;
 	t_pars	*values;
-    int    	i;
+	int		i;
+	t_stack	*tmp;
 
-	i = 0;
-    if (argc < 2)
-        return (0);
-    values = parsing(argc, argv);
-    if (!values)
+	if (argc < 2)
+		return (0);
+
+	values = parsing(argc, argv);
+	if (!values)
 		return (1);
 	ps.stack_a = NULL;
-    ps.stack_b = NULL;
-    i = 0;
-    while (i < values->counter)
+	ps.stack_b = NULL;
+
+	i = 0;
+	while (i < values->counter)
 	{
-        stack_add_back(&ps.stack_a, stack_new(values->array[i++]));
+		stack_add_back(&ps.stack_a, stack_new(values->array[i], 0));
+		i++;
 	}
-	// i = 0;
-	// while (i < values->counter)
-	// {
-	// 	ft_printf("%d\n", ps.stack_a->value);
-	// 	ft_printf("%d\n", ps.stack_a->index);
-	// 	ra(&ps.stack_a);
-	// 	i++;
-	// }
-	complex(ps);
-	if (values->array)
-		free(values->array);
+	assign_index(ps.stack_a);
+	ft_printf("=== STACK A (value | index) ===\n");
+	tmp = ps.stack_a;
+	while (tmp)
+	{
+		ft_printf("value: %d | index: %d\n", tmp->value, tmp->index);
+		tmp = tmp->next;
+	}
+	
+	ft_printf("\n=== AFTER ra ===\n");
+	ra(&ps.stack_a);
+	tmp = ps.stack_a;
+	while (tmp)
+	{
+		ft_printf("value: %d | index: %d\n", tmp->value, tmp->index);
+		tmp = tmp->next;
+	}
+
+	free(values->array);
 	free(values);
 	free_stack(ps.stack_a);
 	free_stack(ps.stack_b);
-    return (0);
+
+	return (0);
 }
