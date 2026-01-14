@@ -6,7 +6,7 @@
 /*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 15:55:57 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/14 13:48:32 by elbarry          ###   ########.fr       */
+/*   Updated: 2026/01/14 13:51:14 by elbarry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,10 @@ int	main(int argc, char **argv)
 	i = 0;
 	while (i < values->counter)
 	{
-		stack_add_back(&ps.stack_a,
-			stack_new(values->array[i], 0));
+		stack_add_back(&ps.stack_a, stack_new(values->array[i], 0));
 		i++;
 	}
-	
+	assign_index(ps.stack_a);
 	ft_printf("=== STACK A (value | index) ===\n");
 	tmp = ps.stack_a;
 	while (tmp)
