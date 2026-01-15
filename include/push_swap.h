@@ -6,7 +6,7 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 17:26:03 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/15 12:41:34 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/15 18:53:55 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	stack_add_back(t_stack **stack, t_stack *new);
 int		stack_size(t_stack *stack);
 
 /* algorithms */
+void	simple(t_ps *ps);
 void	medium(t_ps *ps);
 void	complex(t_ps *ps, int lenght_a);
 

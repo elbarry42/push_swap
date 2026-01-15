@@ -1,13 +1,12 @@
-NAME = push_swap.a
+NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -MMD -MP -I./include
+CFLAGS = -Wall -Wextra -Werror -MMD -MP -g -I./include
 OBJDIR = .objects
 PARSING = srcs/parsing/
 ALGO = srcs/algorithms/
 OPS = srcs/operations/
 STACK = srcs/stack/
 INDEX = srcs/index/
-AR = ar rcs
 RM = rm -f
 
 VPATH = $(ALGO) $(INDEX) $(OPS) $(PARSING) $(STACK)
@@ -27,7 +26,7 @@ DEPS = $(addprefix $(OBJDIR)/,$(notdir $(SRCS:.c=.d)))
 all: $(NAME)
 
 $(NAME): $(OBJS) | Makefile
-	$(AR) $(NAME) $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $@
 
 $(OBJDIR)/%.o:%.c | $(OBJDIR)
 	$(CC) $(CFLAGS) -c $< -o $@
