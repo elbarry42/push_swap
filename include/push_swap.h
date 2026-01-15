@@ -6,15 +6,15 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 17:26:03 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/15 18:53:55 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/15 18:56:56 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-#include <unistd.h>
-#include <stdlib.h>
+# include <unistd.h>
+# include <stdlib.h>
 
 typedef struct s_parsing
 {
@@ -22,24 +22,25 @@ typedef struct s_parsing
 	int		counter;
 	char	*algo_type;
 	int		*array;
-} t_pars;
+}	t_pars;
 
 typedef struct s_stack
 {
-	int		value;
-	int		index;
-	struct	s_stack	*prev;
-	struct	s_stack	*next;
-} t_stack;
+	int				value;
+	int				index;
+	struct s_stack	*prev;
+	struct s_stack	*next;
+}	t_stack;
 
 typedef struct s_push_swap
 {
-	t_stack *stack_a;
+	t_stack	*stack_a;
 	t_stack	*stack_b;
-} t_ps;
+}	t_ps;
 
 t_pars	*parsing(int argc, char **argv);
-t_stack *stack_new(int value, int index);
+t_stack	*stack_new(int value, int index);
+
 void	stack_add_back(t_stack **stack, t_stack *new);
 int		stack_size(t_stack *stack);
 
@@ -72,4 +73,11 @@ void	rrr(t_stack **a, t_stack **b);
 
 /* helpers*/
 void	assign_index(t_stack *stack_a);
+void	stack_add_back(t_stack **stack, t_stack *new);
+int		stack_size(t_stack *stack);
+int		get_chunk_count(int size);
+int		index_in_chunk(int index, int chunk_min, int chunk_max);
+int		chunk_finished(t_stack *a, int chunk_min, int chunk_max);
+int		find_max_index(t_stack *stack);
+int		position_of_index(t_stack *stack, int target_index);
 #endif

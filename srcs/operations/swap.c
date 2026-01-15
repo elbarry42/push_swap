@@ -6,7 +6,7 @@
 /*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 17:38:45 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/12 10:55:09 by elbarry          ###   ########.fr       */
+/*   Updated: 2026/01/15 18:00:51 by elbarry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,14 @@ void	swap(t_stack **stack)
 
 	if (!stack || !*stack || !(*stack)->next)
 		return ;
-
 	first = *stack;
 	second = first->next;
-
 	first->next = second->next;
 	if (second->next)
 		second->next->prev = first;
-
 	second->prev = NULL;
 	second->next = first;
 	first->prev = second;
-
 	*stack = second;
 }
 
