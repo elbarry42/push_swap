@@ -6,11 +6,11 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 10:12:44 by larchimb          #+#    #+#             */
-/*   Updated: 2026/01/08 17:52:00 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/15 15:25:44 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "libft.h"
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {

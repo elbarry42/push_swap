@@ -6,12 +6,12 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 17:06:25 by larchimb          #+#    #+#             */
-/*   Updated: 2026/01/09 17:34:47 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/15 15:25:04 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
-#include "../../include/libft.h"
+#include "push_swap.h"
+#include "libft.h"
 
 t_pars	*is_error(t_pars *values)
 {

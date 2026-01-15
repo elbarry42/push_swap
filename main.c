@@ -6,12 +6,12 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 15:55:57 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/15 15:05:54 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/15 15:24:17 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/libft.h"
-#include "include/push_swap.h"
+#include "libft.h"
+#include "push_swap.h"
 
 void        printf_stacks(t_ps *ps)
 {

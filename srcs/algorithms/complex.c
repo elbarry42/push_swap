@@ -6,12 +6,12 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 15:55:03 by larchimb          #+#    #+#             */
-/*   Updated: 2026/01/15 15:01:06 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/15 15:24:03 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
-#include "../../include/push_swap.h"
+#include "libft.h"
+#include "push_swap.h"
 
 void	initialize_index(t_ps *ps)
 {

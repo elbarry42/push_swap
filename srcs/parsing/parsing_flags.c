@@ -6,11 +6,11 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 14:00:22 by larchimb          #+#    #+#             */
-/*   Updated: 2026/01/12 17:01:30 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/15 15:25:16 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "libft.h"
 
 char	*if_and_which_flags(char *str)
 {
