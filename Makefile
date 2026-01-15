@@ -1,6 +1,6 @@
-NAME = push_swap.a
+NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -MMD -MP -I./include
+CFLAGS = -Wall -Wextra -Werror -MMD -MP
 OBJDIR = .objects
 PARSING = srcs/parsing/
 ALGO = srcs/algorithms/
@@ -11,7 +11,7 @@ AR = ar rcs
 RM = rm -f
 
 VPATH = $(ALGO) $(INDEX) $(OPS) $(PARSING) $(STACK)
-SRCS =	$(ALGO)adaptive.c $(ALGO)complex.c $(ALGO)medium.c $(ALGO)simple.c \
+SRCS =	$(ALGO)adaptive.c $(ALGO)complex.c $(ALGO)medium.c $(ALGO)simple.c $(ALGO)medium_utils.c \
 		$(INDEX)index.c \
 		$(OPS)push.c $(OPS)swap.c $(OPS)rotate.c $(OPS)rev_rotate.c \
 		$(PARSING)parsing.c $(PARSING)parsing_flags.c $(PARSING)parsing_number.c $(PARSING)ft_atoi.c $(PARSING)ft_bzero.c \

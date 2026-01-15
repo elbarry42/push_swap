@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   index.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 11:10:17 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/14 13:42:32 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/15 17:59:30 by elbarry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ static void	sort_int_tab(int *tab, int size)
 
 	if (!tab || size < 2)
 		return ;
-
 	swapped = 1;
 	while (swapped)
 	{
@@ -61,7 +60,6 @@ static int	*stack_to_array(t_stack *stack, int size)
 	tab = malloc(sizeof(int) * size);
 	if (!tab)
 		return (NULL);
-
 	i = 0;
 	while (stack)
 	{
@@ -99,12 +97,10 @@ void	assign_index(t_stack *stack_a)
 
 	if (!stack_a)
 		return ;
-
 	size = stack_size(stack_a);
 	tab = stack_to_array(stack_a, size);
 	if (!tab)
 		return ;
-
 	sort_int_tab(tab, size);
 	set_index(stack_a, tab, size);
 	free(tab);

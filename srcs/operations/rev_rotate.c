@@ -6,7 +6,7 @@
 /*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 14:06:25 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/12 10:57:32 by elbarry          ###   ########.fr       */
+/*   Updated: 2026/01/15 18:00:27 by elbarry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,29 +18,25 @@ void	rev_rotate(t_stack **stack)
 
 	if (!stack || !*stack || !(*stack)->next)
 		return ;
-
 	last = *stack;
 	while (last->next)
 		last = last->next;
-
 	last->prev->next = NULL;
-
 	last->prev = NULL;
 	last->next = *stack;
 	(*stack)->prev = last;
-
 	*stack = last;
 }
 
 void	rra(t_stack **a)
 {
-    rev_rotate(a);
+	rev_rotate(a);
 	write(1, "rra\n", 4);
 }
 
 void	rrb(t_stack **b)
 {
-    rev_rotate(b);
+	rev_rotate(b);
 	write(1, "rrb\n", 4);
 }
 
