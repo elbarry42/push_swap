@@ -6,68 +6,41 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 15:55:03 by larchimb          #+#    #+#             */
-/*   Updated: 2026/01/14 13:47:51 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/15 15:01:06 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 #include "../../include/push_swap.h"
 
-void	printf_stacks(t_ps ps)
-{
-	while (ps.stack_a->next)
-	{
-		ft_printf("A : %d", ps.stack_a->value);
-		ps.stack_a = ps.stack_a->next;
-	}
-	while (ps.stack_b->next)
-	{
-		ft_printf("B : %d", ps.stack_b->value);
-		ps.stack_b = ps.stack_b->next;
-	}
-}
-
-void	intialize_index(t_ps ps)
+void	initialize_index(t_ps *ps)
 {
 	int		i;
 	t_stack	*shuttle;
 
 	i = 0;
-	shuttle = ps.stack_a;
-	while (shuttle->next)
+	shuttle = ps->stack_a;
+	while (shuttle)
 	{
 		shuttle->index = i++;
 		shuttle = shuttle->next;
 	}
 	i = 0;
-	shuttle = ps.stack_b;
-	while (shuttle->next)
+	shuttle = ps->stack_b;
+	while (shuttle)
 	{
 		shuttle->index = i++;
 		shuttle = shuttle->next;
 	}
 }
 
-void	switch_nodes_a(t_ps ps, int i, int j)
+void	push_at_index_a(t_ps *ps, int i)
 {
-	// ft_printf("stacka\nadresse : %p\nvaleur : %d\n index : %d\n", ps.stack_a, ps.stack_a->value, ps.stack_a->index);
-	while (ps.stack_a->index != i)
-		rotate(&ps.stack_a);
-	pb(&ps.stack_a, &ps.stack_b);
-	while (ps.stack_a->index != j)
-		rotate(&ps.stack_a);
-	pa(&ps.stack_a, &ps.stack_b);
-	rotate(&ps.stack_a);
-	pb(&ps.stack_a, &ps.stack_b);
-}
-
-void	push_at_index(t_ps ps, int i)
-{
-	while (ps.stack_a->index != i)
-		rotate(&ps.stack_a);
+	while (ps->stack_a->index != i)
+		rotate(&ps->stack_a);
 
 	// a optimiser avec sois rotate sois rrotate
-	pa(&ps.stack_a, &ps.stack_b);
+	pa(&ps->stack_a, &ps->stack_b);
 }
 
 int	value_at_index(t_stack *stack, int index)
@@ -100,49 +73,43 @@ int	find_median_value(t_stack *stack)
 		return (c);
 }
 
-void	hoare_partition(t_ps ps, t_stack *stack)
+void	partition_a(t_ps *ps)
 {
 	int	median_of_three;
 	int	i;
-	int	j;
+	int	lenght;
 
 	i = 0;
-	j = stack_size(stack) - 1;
-	median_of_three = find_median_value(stack);
-	while (i < j)
+	lenght = stack_size(ps->stack_a);
+	median_of_three = find_median_value(ps->stack_a);
+	while (i < lenght)
 	{
-		if (value_at_index(stack, i) < median_of_three)
-			push_at_index(ps, i);
+		if (value_at_index(ps->stack_a, i) < median_of_three)
+			push_at_index_a(ps, i++);
 		else
-		{
-			if (value_at_index(stack, j) > median_of_three)
-				j--;
-			else
-			{
-				switch_nodes_a(ps, i, j);
-				j--;
-			}
-		}
+			i++;
 	}
 }
 
-void	complex(t_ps ps)
+void	complex(t_ps *ps, int lenght_a)
 {
-	int	lenght_a;
 	int	lenght_b;
 
-	lenght_a = stack_size(ps.stack_a);
-	lenght_b = stack_size(ps.stack_b);
-	if (lenght_a > 1)
+	initialize_index(ps);
+	lenght_a = stack_size(ps->stack_a);
+	if (lenght_a == 0)
+		return ;
+	lenght_b = stack_size(ps->stack_b);
+	if (lenght_a <= 2)
+		ft_printf("test\n");
+	else if ((lenght_a > 2))
 	{
-		hoare_partition(ps, ps.stack_a);
-		intialize_index(ps);
-		printf_stacks(ps);
-		complex(ps);
+		partition_a(ps);
+		complex(ps, lenght_a);
 	}
 	// if (lenght_b > 1)
 	// {
-	// 	hoare_partition(ps, ps.stack_b);
+	// 	hoare_partition(ps, ps->stack_b);
 	// 	complex(t_ps);
 	// }
 }

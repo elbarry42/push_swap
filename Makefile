@@ -1,29 +1,42 @@
 NAME = push_swap.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -MMD -MP
+OBJDIR = .objects
+PARSING = srcs/parsing/
+ALGO = srcs/algorithms/
+OPS = srcs/operations/
+STACK = srcs/stack/
+INDEX = srcs/index/
 AR = ar rcs
 RM = rm -f
-# SRCS =	srcs/algorithms/adaptive.c srcs/algorithms/complex.c srcs/algorithms/medium.c srcs/algorithms/simple.c \
-# 		srcs/operations/push.c srcs/operations/swap.c srcs/operations/rotate.c srcs/operations/rev_rotate.c \
-		srcs/stack/stack_add_back.c srcs/stack/stack_utils.c
-SRCS =	srcs/parsing/parsing.c srcs/parsing/parsing_utils.c srcs/parsing/ft_atoi.c srcs/parsing/ft_bzero.c \
-		srcs/parsing/ft_calloc.c srcs/parsing/ft_isdigit.c srcs/parsing/ft_itoa.c srcs/parsing/ft_printf_utils.c \
-		srcs/parsing/ft_printf.c srcs/parsing/ft_split.c srcs/parsing/ft_strlcpy.c srcs/parsing/ft_strlen.c \
-		srcs/parsing/ft_strncmp.c main.c \
 
-OBJS = $(SRCS:.c=.o)
-DEPS = $(OBJS:.o=.d)
+VPATH = $(ALGO) $(INDEX) $(OPS) $(PARSING) $(STACK)
+SRCS =	$(ALGO)adaptive.c $(ALGO)complex.c $(ALGO)medium.c $(ALGO)simple.c \
+		$(INDEX)index.c \
+		$(OPS)push.c $(OPS)swap.c $(OPS)rotate.c $(OPS)rev_rotate.c \
+		$(PARSING)parsing.c $(PARSING)parsing_flags.c $(PARSING)parsing_number.c $(PARSING)ft_atoi.c $(PARSING)ft_bzero.c \
+		$(PARSING)ft_calloc.c $(PARSING)ft_isdigit.c $(PARSING)ft_itoa.c $(PARSING)printf_utils.c \
+		$(PARSING)ft_printf.c $(PARSING)ft_split.c $(PARSING)ft_strlcpy.c $(PARSING)ft_strlen.c \
+		$(PARSING)ft_strncmp.c \
+		$(STACK)stack.c \
+		main.c
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+OBJS = $(addprefix $(OBJDIR)/,$(notdir $(SRCS:.c=.o)))
+DEPS = $(addprefix $(OBJDIR)/,$(notdir $(SRCS:.c=.d)))
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) | Makefile
 	$(AR) $(NAME) $(OBJS)
 
+$(OBJDIR)/%.o:%.c | $(OBJDIR)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJDIR) :
+	mkdir -p $(OBJDIR)
+
 clean:
-	$(RM) $(OBJS) $(DEPS)
+	rm -rf $(OBJDIR)
 
 fclean: clean
 	$(RM) $(NAME)

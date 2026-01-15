@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   medium.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 10:17:53 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/12 10:20:17 by elbarry          ###   ########.fr       */
+/*   Updated: 2026/01/15 15:01:41 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 
 void	push_chunks(t_ps *ps)
 {
-	
+	(void)ps;
 }
 
 void	push_back_to_a(t_ps *ps)
 {
-	
+	(void)ps;
 }
 
 void	sort_medium(t_ps *ps)
 {
-	
+	(void)ps;
 }
