@@ -6,42 +6,21 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 15:55:03 by larchimb          #+#    #+#             */
-/*   Updated: 2026/01/15 15:24:03 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/16 16:33:59 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "push_swap.h"
 
-void	initialize_index(t_ps *ps)
-{
-	int		i;
-	t_stack	*shuttle;
+// void	push_at_index(t_ps *ps, int i)
+// {
+// 	while (ps->stack_a->index != i)
+// 		rotate(&ps->stack_a);
 
-	i = 0;
-	shuttle = ps->stack_a;
-	while (shuttle)
-	{
-		shuttle->index = i++;
-		shuttle = shuttle->next;
-	}
-	i = 0;
-	shuttle = ps->stack_b;
-	while (shuttle)
-	{
-		shuttle->index = i++;
-		shuttle = shuttle->next;
-	}
-}
-
-void	push_at_index_a(t_ps *ps, int i)
-{
-	while (ps->stack_a->index != i)
-		rotate(&ps->stack_a);
-
-	// a optimiser avec sois rotate sois rrotate
-	pa(&ps->stack_a, &ps->stack_b);
-}
+// 	// a optimiser avec sois rotate sois rrotate
+// 	pa(&ps->stack_a, &ps->stack_b);
+// }
 
 int	value_at_index(t_stack *stack, int index)
 {
@@ -81,13 +60,17 @@ void	partition_a(t_ps *ps)
 
 	i = 0;
 	lenght = stack_size(ps->stack_a);
-	median_of_three = find_median_value(ps->stack_a);
+	if (lenght >= 3)
+		median_of_three = find_median_value(ps->stack_a);
+	else
+		median_of_three = ps->stack_a->value;
 	while (i < lenght)
 	{
-		if (value_at_index(ps->stack_a, i) < median_of_three)
-			push_at_index_a(ps, i++);
+		if (ps->stack_a->value <= median_of_three)
+			pb(&ps->stack_a, &ps->stack_b);
 		else
-			i++;
+			ra(&ps->stack_a);
+		i++;
 	}
 }
 
@@ -95,18 +78,14 @@ void	complex(t_ps *ps, int lenght_a)
 {
 	int	lenght_b;
 
-	initialize_index(ps);
-	lenght_a = stack_size(ps->stack_a);
 	if (lenght_a == 0)
 		return ;
 	lenght_b = stack_size(ps->stack_b);
-	if (lenght_a <= 2)
-		ft_printf("test\n");
-	else if ((lenght_a > 2))
-	{
-		partition_a(ps);
-		complex(ps, lenght_a);
-	}
+	partition_a(ps);
+	lenght_a = stack_size(ps->stack_a);
+	initialize_index(ps);
+	complex(ps, lenght_a);
+
 	// if (lenght_b > 1)
 	// {
 	// 	hoare_partition(ps, ps->stack_b);

@@ -6,7 +6,7 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 16:23:13 by larchimb          #+#    #+#             */
-/*   Updated: 2026/01/15 15:25:10 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/16 13:40:24 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int	check_number(char **array, int *counter)
 	int	j;
 
 	i = 0;
+	if (!array)
+		return (0);
 	while (array[i])
 	{
 		j = 0;

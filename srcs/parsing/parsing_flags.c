@@ -6,7 +6,7 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 14:00:22 by larchimb          #+#    #+#             */
-/*   Updated: 2026/01/15 15:25:16 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/16 13:54:32 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ int	check_flag_placement(char **argv, int argc, int i)
 {
 	if (i == 2 && check_number(ft_split(argv[i - 1], ' '), &i) == 1)
 		return (0);
-	else if (i == argc - 2 && check_number(ft_split(argv[i + 1], ' '), &i) == 1)
+	else if (argc >= 4 && i == argc - 2 && check_number(ft_split(argv[i + 1], ' '), &i) == 1)
 		return (0);
-	else if (argc >= 4 && i > 2 && i < argc - 2)
-		return (0);
+	 else if (argc >= 4 && i > 2 && i < argc - 2)
+	 	return (0);
 	else
 		return (1);
 }
@@ -51,12 +51,15 @@ char	*check_flags(char **argv, int argc, int *bench)
 	algo_type = NULL;
 	while (i < argc)
 	{
-		if (ft_strncmp(argv[i], "--bench", 7) == 0)
-			*bench = *bench + 1;
-		else if (if_and_which_flags(argv[i]) != NULL)
+		if (if_and_which_flags(argv[i]) != NULL)
 		{
-			algo_type = if_and_which_flags(argv[i]);
-			algo += 1;
+			if (ft_strncmp(if_and_which_flags(argv[i]), "bench", 7) == 0)
+				*bench = *bench + 1;
+			else
+			{
+				algo_type = if_and_which_flags(argv[i]);
+				algo += 1;
+			}
 			if (check_flag_placement(argv, argc, i) == 0)
 				return (NULL);
 		}

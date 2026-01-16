@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 15:44:56 by larchimb          #+#    #+#             */
-/*   Updated: 2026/01/07 16:52:36 by elbarry          ###   ########.fr       */
+/*   Updated: 2026/01/16 12:11:35 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ long int	ft_atoi(const char *ptr)
 
 int	ft_atoi_check(const char *ptr)
 {
-	int	res;
-	int	i;
-	int	nbneg;
-	int	tmp;
+	unsigned int	res;
+	int				i;
+	int				nbneg;
+	unsigned int	tmp;
 
 	i = 0;
 	nbneg = 1;
