@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 17:26:03 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/15 18:56:56 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/16 16:12:48 by elbarry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,25 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+
+typedef struct s_bench
+{
+    int sa;
+	int sb;
+	int ss;
+    int pa;
+	int pb;
+    int ra;
+	int rb;
+	int rr;
+    int rra;
+	int rrb;
+	int rrr;
+    int total;
+    double  disorder;
+    char    *strategy_name;
+    char    *complexity_class;
+} t_bench;
 
 typedef struct s_parsing
 {
@@ -76,8 +95,9 @@ void	assign_index(t_stack *stack_a);
 void	stack_add_back(t_stack **stack, t_stack *new);
 int		stack_size(t_stack *stack);
 int		get_chunk_count(int size);
-int		index_in_chunk(int index, int chunk_min, int chunk_max);
 int		chunk_finished(t_stack *a, int chunk_min, int chunk_max);
 int		find_max_index(t_stack *stack);
 int		position_of_index(t_stack *stack, int target_index);
+int		position_of_next_chunk(t_stack *a, int min, int max);
+double	compute_disorder(t_stack *a);
 #endif
