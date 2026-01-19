@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 17:26:03 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/19 14:02:33 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/19 15:53:49 by elbarry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,5 +102,6 @@ int		find_max_index(t_stack *stack);
 int		position_of_index(t_stack *stack, int target_index);
 int		position_of_next_chunk(t_stack *a, int min, int max);
 double	compute_disorder(t_stack *a);
-
+void	print_bench(t_bench *b);
+void	bench_apply(char *op, t_ps *ps, t_bench *b);
 #endif
