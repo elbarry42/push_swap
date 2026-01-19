@@ -6,7 +6,7 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 14:00:22 by larchimb          #+#    #+#             */
-/*   Updated: 2026/01/16 13:54:32 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/19 14:04:52 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,11 @@ int	check_flag_placement(char **argv, int argc, int i)
 {
 	if (i == 2 && check_number(ft_split(argv[i - 1], ' '), &i) == 1)
 		return (0);
-	else if (argc >= 4 && i == argc - 2 && check_number(ft_split(argv[i + 1], ' '), &i) == 1)
+	else if (argc >= 4 && i == argc - 2
+		&& check_number(ft_split(argv[i + 1], ' '), &i) == 1)
 		return (0);
-	 else if (argc >= 4 && i > 2 && i < argc - 2)
-	 	return (0);
+	else if (argc >= 4 && i > 2 && i < argc - 2)
+		return (0);
 	else
 		return (1);
 }

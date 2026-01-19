@@ -6,7 +6,7 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 17:26:03 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/16 18:06:16 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/19 14:02:33 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,22 @@
 
 typedef struct s_bench
 {
-    int sa;
-	int sb;
-	int ss;
-    int pa;
-	int pb;
-    int ra;
-	int rb;
-	int rr;
-    int rra;
-	int rrb;
-	int rrr;
-    int total;
-    double  disorder;
-    char    *strategy_name;
-    char    *complexity_class;
-} t_bench;
+	int	sa;
+	int	sb;
+	int	ss;
+	int	pa;
+	int	pb;
+	int	ra;
+	int	rb;
+	int	rr;
+	int	rra;
+	int	rrb;
+	int	rrr;
+	int	total;
+	double	disorder;
+	char  	*strategy_name;
+	char  	*complexity_class;
+}	t_bench;
 
 typedef struct s_parsing
 {
@@ -66,7 +66,8 @@ int		stack_size(t_stack *stack);
 /* algorithms */
 void	simple(t_ps *ps);
 void	medium(t_ps *ps);
-void	complex(t_ps *ps, int lenght_a);
+void	complex(t_ps *ps);
+void	adaptive(t_ps *ps);
 
 /* swap */
 void	swap(t_stack **stack);
@@ -101,4 +102,5 @@ int		find_max_index(t_stack *stack);
 int		position_of_index(t_stack *stack, int target_index);
 int		position_of_next_chunk(t_stack *a, int min, int max);
 double	compute_disorder(t_stack *a);
+
 #endif

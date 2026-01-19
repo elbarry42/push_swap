@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   disorder.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 14:37:31 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/16 15:11:06 by elbarry          ###   ########.fr       */
+/*   Updated: 2026/01/19 14:05:18 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,3 @@ double	compute_disorder(t_stack *a)
 	}
 	return ((double)mistakes / (double)total_pairs);
 }
-
