@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 17:26:03 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/20 16:53:29 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/20 17:54:53 by elbarry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,9 @@ void	adaptive(t_ps *ps, float disorder);
 
 /* swap */
 void	swap(t_stack **stack);
-void	sa(t_stack **a);
-void	sb(t_stack **b);
-void	ss(t_stack **a, t_stack **b);
+void	sa(t_ps *ps);
+void	sb(t_ps *ps);
+void	ss(t_ps *ps);
 
 /* push */
 void	pa(t_ps *ps);
@@ -82,15 +82,15 @@ void	pb(t_ps *ps);
 
 /* rotate */
 void	rotate(t_stack **stack);
-void	ra(t_stack **a);
-void	rb(t_stack **b);
-void	rr(t_stack **a, t_stack **b);
+void	ra(t_ps *ps);
+void	rb(t_ps *ps);
+void	rr(t_ps *ps);
 
 /* reverse rotate */
 void	rev_rotate(t_stack **stack);
-void	rra(t_stack **a);
-void	rrb(t_stack **b);
-void	rrr(t_stack **a, t_stack **b);
+void	rra(t_ps *ps);
+void	rrb(t_ps *ps);
+void	rrr(t_ps *ps);
 
 /* helpers*/
 void	assign_index(t_stack *stack_a);

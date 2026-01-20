@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   simple.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 16:15:31 by larchimb          #+#    #+#             */
-/*   Updated: 2026/01/20 15:56:34 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/20 18:05:11 by elbarry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ void	rotate_to_index(t_ps *ps, int index, int rotation)
 	if (rotation == 0)
 	{
 		while (ps->stack_a->index != index)
-			ra(&ps->stack_a);
+			ra(ps);
 	}
 	else
 	{
 		while (ps->stack_a->index != index)
-			rra(&ps->stack_a);
+			rra(ps);
 	}
 	pb(ps);
 }

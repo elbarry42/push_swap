@@ -6,7 +6,7 @@
 /*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 14:06:37 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/15 18:00:37 by elbarry          ###   ########.fr       */
+/*   Updated: 2026/01/20 17:52:05 by elbarry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,31 @@ void	rotate(t_stack **stack)
 	first->next = NULL;
 }
 
-void	ra(t_stack **a)
+void	ra(t_ps *ps)
 {
-	rotate(a);
+	if (!ps || !ps->stack_a)
+		return ;
+	rotate(&ps->stack_a);
 	write(1, "ra\n", 3);
+	ps->bench->ra++;
 }
 
-void	rb(t_stack **b)
+void	rb(t_ps *ps)
 {
-	rotate(b);
+	if (!ps || !ps->stack_b)
+		return ;
+	rotate(&ps->stack_b);
 	write(1, "rb\n", 3);
+	ps->bench->rb++;
 }
 
-void	rr(t_stack **a, t_stack **b)
+void	rr(t_ps *ps)
 {
-	rotate(a);
-	rotate(b);
+	if (!ps)
+		return ;
+	rotate(&ps->stack_a);
+	rotate(&ps->stack_b);
 	write(1, "rr\n", 3);
+	ps->bench->rr++;
 }
+

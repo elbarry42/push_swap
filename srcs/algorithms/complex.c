@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   complex.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 15:55:03 by larchimb          #+#    #+#             */
-/*   Updated: 2026/01/20 15:54:51 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/20 17:58:07 by elbarry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	complex(t_ps *ps)
 			if (!(ps->stack_a->index & (1 << bit)))
 				pb(ps);
 			else
-				ra(&ps->stack_a);
+				ra(ps);
 		}
 		while (ps->stack_b)
 			pa(ps);

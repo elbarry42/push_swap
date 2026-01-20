@@ -3,26 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   medium.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 10:17:53 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/20 16:03:29 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/20 18:04:32 by elbarry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-void	move_stack_a_to_chunk(t_stack **a, int min, int max)
+void	move_stack_a_to_chunk(t_ps *ps, int min, int max)
 {
 	int	pos;
 	int	size;
 
-	pos = position_of_next_chunk(*a, min, max);
-	size = stack_size(*a);
+	pos = position_of_next_chunk(ps->stack_a, min, max);
+	size = stack_size(ps->stack_a);
 	if (pos <= size / 2)
-		ra(a);
+		ra(ps);
 	else
-		rra(a);
+		rra(ps);
 }
 
 static void	push_chunks(t_ps *ps)
@@ -45,10 +45,10 @@ static void	push_chunks(t_ps *ps)
 			pb(ps);
 			mid = (chunk_min + chunk_max) / 2;
 			if (ps->stack_b->index < mid)
-				rb(&ps->stack_b);
+				rb(ps);
 		}
 		else
-			move_stack_a_to_chunk(&ps->stack_a, chunk_min, chunk_max);
+			move_stack_a_to_chunk(ps, chunk_min, chunk_max);
 		if (chunk_finished(ps->stack_a, chunk_min, chunk_max))
 		{
 			chunk_min += chunk_size;
@@ -73,9 +73,9 @@ static void	push_back_to_a(t_ps *ps)
 			pos = position_of_index(ps->stack_b, max);
 			size = stack_size(ps->stack_b);
 			if (pos <= size / 2)
-				rb(&ps->stack_b);
+				rb(ps);
 			else
-				rrb(&ps->stack_b);
+				rrb(ps);
 		}
 	}
 }
