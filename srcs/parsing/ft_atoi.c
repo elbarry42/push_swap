@@ -6,7 +6,7 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 15:44:56 by larchimb          #+#    #+#             */
-/*   Updated: 2026/01/16 12:11:35 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/19 16:21:50 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,10 @@ int	ft_atoi_check(const char *ptr)
 		i++;
 	while (ptr[i] >= '0' && ptr[i] <= '9')
 	{
-		tmp = res;
 		res = res * 10 + ptr[i++] - '0';
-		if (res < tmp)
+		if (nbneg > 0 && res > 2147483647)
+			return (0);
+		else if (nbneg < 0 && res > 2147483648)
 			return (0);
 	}
 	return (1);

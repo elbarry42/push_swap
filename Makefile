@@ -9,7 +9,7 @@ PARSING = srcs/parsing/
 RM = rm -f
 
 VPATH = $(ALGO) $(UTILS) $(MOVES) $(PARSING)
-SRCS =	$(ALGO)adaptive.c $(ALGO)complex.c $(ALGO)medium.c $(ALGO)simple.c $(ALGO)medium_utils.c \
+SRCS =	$(ALGO)adaptive.c $(ALGO)complex.c $(ALGO)medium.c $(ALGO)simple.c $(ALGO)medium_utils.c $(ALGO)few_numbers.c \
 		$(UTILS)index.c $(UTILS)bench.c $(UTILS)disorder.c $(UTILS)stack.c\
 		$(MOVES)push.c $(MOVES)swap.c $(MOVES)rotate.c $(MOVES)rev_rotate.c \
 		$(PARSING)parsing.c $(PARSING)parsing_flags.c $(PARSING)parsing_number.c $(PARSING)ft_atoi.c $(PARSING)ft_bzero.c \

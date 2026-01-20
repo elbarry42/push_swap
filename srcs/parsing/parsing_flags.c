@@ -6,7 +6,7 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 14:00:22 by larchimb          #+#    #+#             */
-/*   Updated: 2026/01/19 14:04:52 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/19 16:37:27 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,15 @@ int	check_flag_placement(char **argv, int argc, int i)
 		return (1);
 }
 
+char	*finalcheck_flags(int *bench, int algo, char *algo_type)
+{
+	if (*bench >= 2 || algo >= 2)
+		return (NULL);
+	if (algo_type == NULL)
+		algo_type = "adaptive";
+	return (algo_type);
+}
+
 char	*check_flags(char **argv, int argc, int *bench)
 {
 	int		i;
@@ -66,9 +75,5 @@ char	*check_flags(char **argv, int argc, int *bench)
 		}
 		i += 1;
 	}
-	if (*bench >= 2 || algo >= 2)
-		return (NULL);
-	if (algo_type == NULL)
-		algo_type = "adaptive";
-	return (algo_type);
+	return (finalcheck_flags(bench, algo, algo_type));
 }

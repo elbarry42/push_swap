@@ -6,7 +6,7 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 17:26:03 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/19 14:02:33 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/20 15:06:31 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int		stack_size(t_stack *stack);
 void	simple(t_ps *ps);
 void	medium(t_ps *ps);
 void	complex(t_ps *ps);
-void	adaptive(t_ps *ps);
+void	adaptive(t_ps *ps, float disorder);
 
 /* swap */
 void	swap(t_stack **stack);
@@ -101,6 +101,9 @@ int		chunk_finished(t_stack *a, int chunk_min, int chunk_max);
 int		find_max_index(t_stack *stack);
 int		position_of_index(t_stack *stack, int target_index);
 int		position_of_next_chunk(t_stack *a, int min, int max);
-double	compute_disorder(t_stack *a);
+float	compute_disorder(t_stack *a);
+void	few_numbers(t_ps *ps);
+void	push_at_index_a(t_ps *ps, int index);
+int		find_smallest_number(t_ps *ps);
 
 #endif

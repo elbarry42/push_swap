@@ -6,7 +6,7 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 16:15:31 by larchimb          #+#    #+#             */
-/*   Updated: 2026/01/16 11:30:44 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/20 13:05:22 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	rotate_to_index(t_ps *ps, int index, int rotation)
 
 int	find_smallest_number(t_ps *ps)
 {
-	int	index;
-	int	small_value;
+	int		index;
+	int		small_value;
 	t_stack	*shuttle;
 
 	shuttle = ps->stack_a;
@@ -61,13 +61,12 @@ void	push_at_index_a(t_ps *ps, int index)
 		rotate_to_index(ps, index, 1);
 	else if (difference > 0 && difference > half_size)
 		rotate_to_index(ps, index, 0);
-	else if (difference < 0 && -difference > half_size)
+	else if (difference < 0 && - difference > half_size)
 		rotate_to_index(ps, index, 1);
-	else if (difference < 0 && -difference <= half_size)
+	else if (difference < 0 && - difference <= half_size)
 		rotate_to_index(ps, index, 0);
 	else if (difference == 0)
 		pb(&ps->stack_a, &ps->stack_b);
-
 }
 
 void	initialize_index(t_ps *ps)
@@ -94,8 +93,15 @@ void	initialize_index(t_ps *ps)
 void	simple(t_ps *ps)
 {
 	int	smallest_index;
+	int	lenght;
 
-	while(ps->stack_a->next)
+	lenght = stack_size(ps->stack_a);
+	if (lenght <= 4)
+	{
+		few_numbers(ps);
+		return ;
+	}
+	while (ps->stack_a->next)
 	{
 		initialize_index(ps);
 		smallest_index = find_smallest_number(ps);

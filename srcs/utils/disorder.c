@@ -6,13 +6,13 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 14:37:31 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/19 14:05:18 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/20 13:56:08 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "push_swap.h"
 
-double	compute_disorder(t_stack *a)
+float	compute_disorder(t_stack *a)
 {
 	t_stack	*i;
 	t_stack	*j;
@@ -30,11 +30,11 @@ double	compute_disorder(t_stack *a)
 		while (j)
 		{
 			total_pairs++;
-			if (i->index > j->index)
+			if (i->value > j->value)
 				mistakes++;
 			j = j->next;
 		}
 		i = i->next;
 	}
-	return ((double)mistakes / (double)total_pairs);
+	return ((float)mistakes / (float)total_pairs);
 }
