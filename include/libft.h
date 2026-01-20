@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 16:04:56 by larchimb          #+#    #+#             */
-/*   Updated: 2026/01/09 16:14:55 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/19 15:50:16 by elbarry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include <stdlib.h>
 # include <stdarg.h>
 #include <stdint.h>
+
+int	ft_strcmp(const char *s1, const char *s2);
+void	ft_putdouble_fd(double n, int fd);
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);

@@ -6,7 +6,7 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 17:26:03 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/20 15:06:31 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/20 15:12:24 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,5 +105,6 @@ float	compute_disorder(t_stack *a);
 void	few_numbers(t_ps *ps);
 void	push_at_index_a(t_ps *ps, int index);
 int		find_smallest_number(t_ps *ps);
-
+void	print_bench(t_bench *b);
+void	bench_apply(char *op, t_ps *ps, t_bench *b);
 #endif
