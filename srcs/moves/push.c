@@ -3,47 +3,49 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:21:45 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/15 18:00:19 by elbarry          ###   ########.fr       */
+/*   Updated: 2026/01/20 16:43:06 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "push_swap.h"
 
-void	pa(t_stack **a, t_stack **b)
+void	pa(t_ps *ps)
 {
 	t_stack	*tmp;
 
-	if (!b || !*b)
+	if (!ps || !ps->stack_b)
 		return ;
-	tmp = *b;
-	*b = tmp->next;
-	if (*b)
-		(*b)->prev = NULL;
+	tmp = ps->stack_b;
+	ps->stack_b = tmp->next;
+	if (ps->stack_b)
+		ps->stack_b->prev = NULL;
 	tmp->prev = NULL;
-	tmp->next = *a;
-	if (*a)
-		(*a)->prev = tmp;
-	*a = tmp;
+	tmp->next = ps->stack_a;
+	if (ps->stack_a)
+		ps->stack_a->prev = tmp;
+	ps->stack_a = tmp;
 	write(1, "pa\n", 3);
+	ps->bench->pa++;
 }
 
-void	pb(t_stack **a, t_stack **b)
+void	pb(t_ps *ps)
 {
 	t_stack	*tmp;
 
-	if (!a || !*a)
+	if (!ps || !ps->stack_a)
 		return ;
-	tmp = *a;
-	*a = tmp->next;
-	if (*a)
-		(*a)->prev = NULL;
+	tmp = ps->stack_a;
+	ps->stack_a = tmp->next;
+	if (ps->stack_a)
+		ps->stack_a->prev = NULL;
 	tmp->prev = NULL;
-	tmp->next = *b;
-	if (*b)
-		(*b)->prev = tmp;
-	*b = tmp;
+	tmp->next = ps->stack_b;
+	if (ps->stack_b)
+		ps->stack_b->prev = tmp;
+	ps->stack_b = tmp;
 	write(1, "pb\n", 3);
+	ps->bench->pb++;
 }

@@ -6,7 +6,7 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 17:26:03 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/20 15:12:24 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/20 16:53:29 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_bench
 	int	rrb;
 	int	rrr;
 	int	total;
-	double	disorder;
+	float	disorder;
 	char  	*strategy_name;
 	char  	*complexity_class;
 }	t_bench;
@@ -53,6 +53,7 @@ typedef struct s_stack
 
 typedef struct s_push_swap
 {
+	t_bench	*bench;
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 }	t_ps;
@@ -76,8 +77,8 @@ void	sb(t_stack **b);
 void	ss(t_stack **a, t_stack **b);
 
 /* push */
-void	pa(t_stack **a, t_stack **b);
-void	pb(t_stack **a, t_stack **b);
+void	pa(t_ps *ps);
+void	pb(t_ps *ps);
 
 /* rotate */
 void	rotate(t_stack **stack);
@@ -105,6 +106,5 @@ float	compute_disorder(t_stack *a);
 void	few_numbers(t_ps *ps);
 void	push_at_index_a(t_ps *ps, int index);
 int		find_smallest_number(t_ps *ps);
-void	print_bench(t_bench *b);
-void	bench_apply(char *op, t_ps *ps, t_bench *b);
+void	print_bench(t_ps *ps);
 #endif

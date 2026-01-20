@@ -6,7 +6,7 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 15:55:03 by larchimb          #+#    #+#             */
-/*   Updated: 2026/01/20 13:05:49 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/20 15:54:51 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,12 @@ void	complex(t_ps *ps)
 		while (lenght-- > 0)
 		{
 			if (!(ps->stack_a->index & (1 << bit)))
-				pb(&ps->stack_a, &ps->stack_b);
+				pb(ps);
 			else
 				ra(&ps->stack_a);
 		}
 		while (ps->stack_b)
-			pa(&ps->stack_a, &ps->stack_b);
+			pa(ps);
 		bit++;
 	}
 }

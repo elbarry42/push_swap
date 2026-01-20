@@ -6,7 +6,7 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 18:35:20 by larchimb          #+#    #+#             */
-/*   Updated: 2026/01/20 13:03:40 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/20 15:55:15 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,6 @@ void	few_numbers(t_ps *ps)
 		}
 		check_three_nodes(ps);
 		while (i-- > 0)
-			pa(&ps->stack_a, &ps->stack_b);
+			pa(ps);
 	}
 }

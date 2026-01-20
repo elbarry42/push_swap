@@ -6,7 +6,7 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 16:15:31 by larchimb          #+#    #+#             */
-/*   Updated: 2026/01/20 13:05:22 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/20 15:56:34 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	rotate_to_index(t_ps *ps, int index, int rotation)
 		while (ps->stack_a->index != index)
 			rra(&ps->stack_a);
 	}
-	pb(&ps->stack_a, &ps->stack_b);
+	pb(ps);
 }
 
 int	find_smallest_number(t_ps *ps)
@@ -66,7 +66,7 @@ void	push_at_index_a(t_ps *ps, int index)
 	else if (difference < 0 && - difference <= half_size)
 		rotate_to_index(ps, index, 0);
 	else if (difference == 0)
-		pb(&ps->stack_a, &ps->stack_b);
+		pb(ps);
 }
 
 void	initialize_index(t_ps *ps)
@@ -108,5 +108,5 @@ void	simple(t_ps *ps)
 		push_at_index_a(ps, smallest_index);
 	}
 	while (ps->stack_b)
-		pa(&ps->stack_a, &ps->stack_b);
+		pa(ps);
 }

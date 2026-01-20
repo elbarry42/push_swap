@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   medium.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 10:17:53 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/16 13:59:06 by elbarry          ###   ########.fr       */
+/*   Updated: 2026/01/20 16:03:29 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	push_chunks(t_ps *ps)
 		if (ps->stack_a->index >= chunk_min
 			&& ps->stack_a->index <= chunk_max)
 		{
-			pb(&ps->stack_a, &ps->stack_b);
+			pb(ps);
 			mid = (chunk_min + chunk_max) / 2;
 			if (ps->stack_b->index < mid)
 				rb(&ps->stack_b);
@@ -67,7 +67,7 @@ static void	push_back_to_a(t_ps *ps)
 	{
 		max = find_max_index(ps->stack_b);
 		if (ps->stack_b->index == max)
-			pa(&ps->stack_a, &ps->stack_b);
+			pa(ps);
 		else
 		{
 			pos = position_of_index(ps->stack_b, max);
