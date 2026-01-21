@@ -23,31 +23,25 @@ int	call_free(char **array)
 	return (0);
 }
 
-int	check_number(char **array, int *counter)
+int	check_number(char *array)
 {
 	int	i;
-	int	j;
 
 	i = 0;
 	if (!array)
 		return (0);
+	if (array[i] == '-' || array[i] == '+')
+		i++;
+	if (!array[i])
+		return (0);
 	while (array[i])
 	{
-		j = 0;
-		while (array[i][j])
-		{
-			if (array[i][j] == '-' || array[i][j] == '+')
-				j++;
-			if (ft_isdigit(array[i][j]) == 0)
-				return (call_free(array));
-			j++;
-		}
-		if (ft_atoi_check(array[i]) == 0)
-			return (call_free(array));
-		*counter += 1;
+		if (ft_isdigit(array[i]) == 0)
+			return (0);
 		i++;
 	}
-	call_free(array);
+	if (ft_atoi_check(array) == 0)
+		return (0);
 	return (1);
 }
 
@@ -62,8 +56,12 @@ int	check_data(int argc, char **argv)
 	{
 		if (if_and_which_flags(argv[i]) == NULL)
 		{
-			if (check_number(ft_split(argv[i], ' '), &counter) == 0)
+			if (check_number(argv[i]) == 0)
+			{
+				// call_free(argv);
 				return (0);
+			}
+			counter++;
 			i++;
 		}
 		else

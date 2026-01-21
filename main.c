@@ -66,23 +66,23 @@ static void	initialize_ps(t_ps *ps)
 
 static	char	*using_algo_choose(t_ps *ps, t_pars *values, float disorder)
 {
-	if (ft_strncmp(values->algo_type, "Adaptive", 11) == 0)
+	if (ft_strncmp(values->algo_type, "Adaptive", 9) == 0)
 		return (adaptive(ps, disorder));
-	else if (ft_strncmp(values->algo_type, "Simple", 9) == 0)
+	else if (ft_strncmp(values->algo_type, "Simple", 7) == 0)
 	{
 		if (disorder == 0)
 			return ("O(n²)");
 		simple(ps);
 		return ("O(n²)");
 	}
-	else if (ft_strncmp(values->algo_type, "Medium", 9) == 0)
+	else if (ft_strncmp(values->algo_type, "Medium", 7) == 0)
 	{
 		if (disorder == 0)
 			return ("O(n√n)");
 		medium(ps);
 		return ("O(n√n)");
 	}
-	else if (ft_strncmp(values->algo_type, "Complex", 10) == 0)
+	else if (ft_strncmp(values->algo_type, "Complex", 8) == 0)
 	{
 		if (disorder == 0)
 			return ("O(nlog(n))");

@@ -1,6 +1,6 @@
 NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -MMD -MP -I./include
+CFLAGS = -Wall -Wextra -Werror -MMD -MP -g -I./include
 OBJDIR = .objects
 ALGO = srcs/algorithms/
 UTILS =srcs/utils/
@@ -17,8 +17,8 @@ SRCS =	$(ALGO)adaptive.c $(ALGO)complex.c $(ALGO)medium.c $(ALGO)simple.c $(ALGO
 		$(PARSING)ft_calloc.c $(PARSING)ft_isdigit.c $(PARSING)ft_itoa.c $(PARSING)printf_utils.c \
 		$(PARSING)ft_printf.c $(PARSING)ft_split.c $(PARSING)ft_strlcpy.c $(PARSING)ft_strlen.c \
 		$(PARSING)ft_strncmp.c $(PARSING)ft_strjoin.c $(PARSING)ft_memcpy.c \
-		$(CHECKER)checker.c $(CHECKER)checker_utils.c \
 		main.c
+# 		$(CHECKER)checker.c $(CHECKER)checker_utils.c \
 
 OBJS = $(addprefix $(OBJDIR)/,$(notdir $(SRCS:.c=.o)))
 DEPS = $(addprefix $(OBJDIR)/,$(notdir $(SRCS:.c=.d)))
