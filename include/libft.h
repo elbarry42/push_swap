@@ -6,7 +6,7 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 16:04:56 by larchimb          #+#    #+#             */
-/*   Updated: 2026/01/21 12:17:25 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/21 13:39:43 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int		ft_atoi_check(const char *ptr);
 int		call_free(char **array);
 int		check_number(char **array, int *counter);
 int		check_data(int argc, char **argv);
-int		*put_in_tmp_array(char **argv, int argc, int counter);
 int		check_duplicate_number(int *array, char **array_alpha, int *i_array);
 size_t	ft_strlen(const char *str);
 char	**ft_split(char const *s, char c);
@@ -35,9 +34,6 @@ char	*check_flags(char **argv, int argc, int *bench);
 void	*ft_calloc(size_t nmemb, size_t size);
 void	*ft_bzero(void *s, size_t n);
 //printf
-size_t	ft_putchar(int c);
-size_t	ft_putstr(char *str);
-size_t	ft_put_int(int nb);
 size_t	ft_put_unsigned_int(unsigned int nb);
 size_t	ft_print_hexa_low(unsigned long nb);
 size_t	ft_print_hexa_up(unsigned int nb);

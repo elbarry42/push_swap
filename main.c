@@ -6,7 +6,7 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 15:55:57 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/21 11:59:05 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/21 13:48:44 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,15 @@ static void	free_all(t_ps *ps, t_pars *values)
 		ps->stack_a = tmp;
 	}
 	free(ps->bench);
+}
+static	int	total_ops(t_bench *bench)
+{
+	int	total;
+
+	total = bench->sa + bench->sb + bench->ss + bench->pa + bench->pb
+		+ bench->ra + bench->rb + bench->rr + bench->rra + bench->rrb
+		+ bench->rrr;
+	return (total);
 }
 
 static void	initialize_ps(t_ps *ps)
@@ -104,6 +113,7 @@ int	main(int argc, char **argv)
 	ps.bench->disorder = compute_disorder(ps.stack_a);
 	ps.bench->complexity = using_algo_choose(&ps, values, ps.bench->disorder);
 	ps.bench->strategy = values->algo_type;
+	ps.bench->total = total_ops(ps.bench);
 	if (values->bench)
 		print_bench(&ps);
 	free_all(&ps, values);
