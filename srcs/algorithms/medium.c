@@ -6,7 +6,7 @@
 /*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 10:17:53 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/21 12:22:27 by elbarry          ###   ########.fr       */
+/*   Updated: 2026/01/21 12:37:28 by elbarry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@ void	move_stack_a_to_chunk(t_ps *ps, int min, int max)
 		ra(ps);
 	else
 		rra(ps);
+}
+
+static void	next_chunk(int *min, int *max, int size)
+{
+	*min += size;
+	*max += size;
 }
 
 static void	push_chunks(t_ps *ps)
@@ -50,10 +56,7 @@ static void	push_chunks(t_ps *ps)
 		else
 			move_stack_a_to_chunk(ps, chunk_min, chunk_max);
 		if (chunk_finished(ps->stack_a, chunk_min, chunk_max))
-		{
-			chunk_min += chunk_size;
-			chunk_max += chunk_size;
-		}
+			next_chunk(&chunk_min, &chunk_max, chunk_size);
 	}
 }
 
