@@ -3,21 +3,48 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 17:06:25 by larchimb          #+#    #+#             */
-/*   Updated: 2026/01/21 12:14:42 by elbarry          ###   ########.fr       */
+/*   Updated: 2026/01/21 17:26:24 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft.h"
 
-static t_pars	*is_error(t_pars *values)
+static t_pars	*is_error(t_pars *values, char **argv)
 {
+	int	i;
+
+	i = 0;
 	write(2, "Error\n", 6);
 	free(values);
+	while (argv[i])
+		free(argv[i++]);
+	free(argv);
 	return (NULL);
+}
+
+static	char	**clean_argv(int *argc, char **argv)
+{
+	int		i;
+	char	*ptr;
+	char	*tmp;
+	char	**array;
+
+	i = 0;
+	ptr = ft_strjoin(argv[i++], "");
+	while (i < *argc)
+	{
+		tmp = ptr;
+		ptr = ft_strjoin(ptr, argv[i++]);
+		free(tmp);
+	}
+	*argc = count_words(ptr, ' ');
+	array = ft_split(ptr, ' ');
+	free(ptr);
+	return (array);
 }
 
 static	int	*put_in_tmp_array(char **argv, int argc, int counter)
@@ -56,12 +83,14 @@ t_pars	*parsing(int argc, char **argv)
 	values->bench = 0;
 	values->algo_type = NULL;
 	values->array = NULL;
+	argv = clean_argv(&argc, argv);
 	values->algo_type = check_flags(argv, argc, &values->bench);
 	values->counter = check_data(argc, argv);
 	if (values->counter == 0 || values->algo_type == NULL)
-		return (is_error(values));
+		return (is_error(values, argv));
 	values->array = put_in_tmp_array(argv, argc, values->counter);
 	if (values->array == NULL)
-		return (is_error(values));
+		return (is_error(values, argv));
+	call_free(argv);
 	return (values);
 }

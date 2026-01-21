@@ -15,7 +15,7 @@ SRCS =	$(ALGO)adaptive.c $(ALGO)complex.c $(ALGO)medium.c $(ALGO)simple.c $(ALGO
 		$(PARSING)parsing.c $(PARSING)parsing_flags.c $(PARSING)parsing_number.c $(PARSING)ft_atoi.c $(PARSING)ft_bzero.c \
 		$(PARSING)ft_calloc.c $(PARSING)ft_isdigit.c $(PARSING)ft_itoa.c $(PARSING)printf_utils.c \
 		$(PARSING)ft_printf.c $(PARSING)ft_split.c $(PARSING)ft_strlcpy.c $(PARSING)ft_strlen.c \
-		$(PARSING)ft_strncmp.c \
+		$(PARSING)ft_strncmp.c $(PARSING)ft_strjoin.c $(PARSING)ft_memcpy.c\
 		main.c
 
 OBJS = $(addprefix $(OBJDIR)/,$(notdir $(SRCS:.c=.o)))
