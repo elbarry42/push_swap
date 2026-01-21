@@ -6,11 +6,11 @@
 /*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 15:36:21 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/15 18:00:01 by elbarry          ###   ########.fr       */
+/*   Updated: 2026/01/21 11:50:23 by elbarry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "push_swap.h"
 
 t_stack	*stack_new(int value, int index)
 {

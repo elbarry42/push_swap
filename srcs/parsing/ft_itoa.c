@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 11:38:16 by larchimb          #+#    #+#             */
-/*   Updated: 2026/01/15 15:25:39 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/21 12:21:12 by elbarry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	len_for_int(int n)
+static int	len_for_int(int n)
 {
 	int				len;
 	unsigned int	nbr;
@@ -35,7 +35,7 @@ int	len_for_int(int n)
 	return (len);
 }
 
-char	*put_nnegatif_in_ptr(char *ptr, int n, int len)
+static char	*put_nnegatif_in_ptr(char *ptr, int n, int len)
 {
 	unsigned int	nbr;
 
@@ -49,7 +49,7 @@ char	*put_nnegatif_in_ptr(char *ptr, int n, int len)
 	return (ptr);
 }
 
-char	*put_npositif_in_ptr(char *ptr, int n, int len)
+static char	*put_npositif_in_ptr(char *ptr, int n, int len)
 {
 	while (len >= 0)
 	{

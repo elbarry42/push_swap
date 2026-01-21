@@ -6,11 +6,11 @@
 /*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 17:38:45 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/20 17:46:34 by elbarry          ###   ########.fr       */
+/*   Updated: 2026/01/21 12:23:24 by elbarry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "push_swap.h"
 
 void	swap(t_stack **stack)
 {
@@ -57,6 +57,3 @@ void	ss(t_ps *ps)
 	write(1, "ss\n", 3);
 	ps->bench->ss++;
 }
-
-
-

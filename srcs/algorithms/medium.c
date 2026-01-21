@@ -6,11 +6,11 @@
 /*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 10:17:53 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/20 18:04:32 by elbarry          ###   ########.fr       */
+/*   Updated: 2026/01/21 12:22:27 by elbarry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "push_swap.h"
 
 void	move_stack_a_to_chunk(t_ps *ps, int min, int max)
 {

@@ -6,11 +6,11 @@
 /*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 14:06:37 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/20 17:52:05 by elbarry          ###   ########.fr       */
+/*   Updated: 2026/01/21 12:23:28 by elbarry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "push_swap.h"
 
 void	rotate(t_stack **stack)
 {
@@ -57,4 +57,3 @@ void	rr(t_ps *ps)
 	write(1, "rr\n", 3);
 	ps->bench->rr++;
 }
-

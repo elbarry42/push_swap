@@ -3,27 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   index.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 11:10:17 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/21 11:30:17 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/21 11:50:33 by elbarry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	stack_size(t_stack *stack)
-{
-	int	count;
-
-	count = 0;
-	while (stack)
-	{
-		count++;
-		stack = stack->next;
-	}
-	return (count);
-}
 
 static void	sort_int_tab(int *tab, int size)
 {

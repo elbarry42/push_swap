@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 17:26:03 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/21 11:03:36 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/21 12:23:01 by elbarry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,21 @@
 
 typedef struct s_bench
 {
-	int	sa;
-	int	sb;
-	int	ss;
-	int	pa;
-	int	pb;
-	int	ra;
-	int	rb;
-	int	rr;
-	int	rra;
-	int	rrb;
-	int	rrr;
-	int	total;
+	int		sa;
+	int		sb;
+	int		ss;
+	int		pa;
+	int		pb;
+	int		ra;
+	int		rb;
+	int		rr;
+	int		rra;
+	int		rrb;
+	int		rrr;
+	int		total;
 	float	disorder;
-	char  	*strategy;
-	char  	*complexity;
+	char	*strategy;
+	char	*complexity;
 }	t_bench;
 
 typedef struct s_parsing
@@ -95,16 +95,16 @@ void	rrr(t_ps *ps);
 /* helpers*/
 void	assign_index(t_stack *stack_a);
 void	stack_add_back(t_stack **stack, t_stack *new);
-void	initialize_index(t_ps *ps);
+void	few_numbers(t_ps *ps);
+void	push_at_index_a(t_ps *ps, int index);
+void	print_bench(t_ps *ps);
 int		stack_size(t_stack *stack);
 int		get_chunk_count(int size);
 int		chunk_finished(t_stack *a, int chunk_min, int chunk_max);
 int		find_max_index(t_stack *stack);
 int		position_of_index(t_stack *stack, int target_index);
+int		find_smallest_number(t_ps *ps);
 int		position_of_next_chunk(t_stack *a, int min, int max);
 float	compute_disorder(t_stack *a);
-void	few_numbers(t_ps *ps);
-void	push_at_index_a(t_ps *ps, int index);
-int		find_smallest_number(t_ps *ps);
-void	print_bench(t_ps *ps);
+
 #endif
