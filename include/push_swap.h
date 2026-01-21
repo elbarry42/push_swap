@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 17:26:03 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/21 13:36:48 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/21 17:44:38 by elbarry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,5 +106,9 @@ int		position_of_index(t_stack *stack, int target_index);
 int		find_smallest_number(t_ps *ps);
 int		position_of_next_chunk(t_stack *a, int min, int max);
 float	compute_disorder(t_stack *a);
+
+/* checker */
+int	is_sorted(t_stack *a);
+int	stack_is_empty(t_stack *b);
 
 #endif
