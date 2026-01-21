@@ -6,14 +6,14 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 15:55:57 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/21 11:28:33 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/21 11:44:59 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "push_swap.h"
 
-void	free_all(t_ps *ps, t_pars *values)
+static void	free_all(t_ps *ps, t_pars *values)
 {
 	t_stack	*tmp;
 
@@ -27,7 +27,7 @@ void	free_all(t_ps *ps, t_pars *values)
 	}
 	free(ps->bench);
 }
-void	initialize_ps(t_ps *ps)
+static void	initialize_ps(t_ps *ps)
 {
 	ps->bench = malloc(sizeof(t_bench));
 	if (!ps->bench)
@@ -56,29 +56,30 @@ void	initialize_ps(t_ps *ps)
 
 static	char	*using_algo_choose(t_ps *ps, t_pars *values, float disorder)
 {
-	if (disorder > 0)
+	if (ft_strncmp(values->algo_type, "Adaptive", 11) == 0)
+		return (adaptive(ps, disorder));
+	else if (ft_strncmp(values->algo_type, "Simple", 9) == 0)
 	{
-		if (ft_strncmp(values->algo_type, "Adaptive", 11) == 0)
-			return (adaptive(ps, disorder));
-		else if (ft_strncmp(values->algo_type, "Simple", 9) == 0)
-		{
-			simple(ps);
+		if (disorder == 0)
 			return ("O(n²)");
-		}
-		else if (ft_strncmp(values->algo_type, "Medium", 9) == 0)
-		{
-			medium(ps);
-			return ("O(n√n)");
-		}
-		else if (ft_strncmp(values->algo_type, "Complex", 10) == 0)
-		{
-			complex(ps);
-			return ("O(nlog(n))");
-		}
-		return (NULL);
+		simple(ps);
+		return ("O(n²)");
 	}
-	else
-		return ("");
+	else if (ft_strncmp(values->algo_type, "Medium", 9) == 0)
+	{
+		if (disorder == 0)
+			return ("O(n√n)");
+		medium(ps);
+		return ("O(n√n)");
+	}
+	else if (ft_strncmp(values->algo_type, "Complex", 10) == 0)
+	{
+		if (disorder == 0)
+			return ("O(nlog(n))");
+		complex(ps);
+		return ("O(nlog(n))");
+	}
+	return (NULL);
 }
 
 int	main(int argc, char **argv)
