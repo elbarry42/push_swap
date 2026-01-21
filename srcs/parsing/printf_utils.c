@@ -6,7 +6,7 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 12:43:09 by larchimb          #+#    #+#             */
-/*   Updated: 2026/01/15 15:24:56 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/20 17:39:16 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,14 @@ size_t	ft_putstr(char *str)
 
 	if (!str)
 	{
-		write(1, "(null)", 6);
+		write(2, "(null)", 6);
 		return (6);
 	}
 	i = 0;
 	len = 0;
 	while (str[i])
 	{
-		write(1, &str[i], 1);
+		write(2, &str[i], 1);
 		len++;
 		i++;
 	}
@@ -49,7 +49,7 @@ size_t	ft_putstr(char *str)
 
 size_t	ft_putchar(int c)
 {
-	write(1, &c, 1);
+	write(2, &c, 1);
 	return (1);
 }
 
@@ -61,7 +61,7 @@ size_t	ft_put_int(int nb)
 	len = 0;
 	if (nb < 0)
 	{
-		write(1, "-", 1);
+		write(2, "-", 1);
 		nbr = -nb;
 		len++;
 	}

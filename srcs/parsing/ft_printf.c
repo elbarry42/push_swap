@@ -6,7 +6,7 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 10:24:30 by larchimb          #+#    #+#             */
-/*   Updated: 2026/01/19 15:55:23 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/20 17:39:44 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ size_t	ft_put_unsigned_int(unsigned int nb)
 	}
 	while (i >= 1)
 	{
-		write(1, &str[i - 1], 1);
+		write(2, &str[i - 1], 1);
 		len++;
 		i--;
 	}
@@ -45,7 +45,7 @@ size_t	ft_print_hexa_low(unsigned long nb)
 	base = "0123456789abcdef";
 	if (nb > 16 - 1)
 		len = len + ft_print_hexa_low(nb / 16);
-	write(1, &base[nb % 16], 1);
+	write(2, &base[nb % 16], 1);
 	return (len);
 }
 
@@ -58,7 +58,7 @@ size_t	ft_print_hexa_up(unsigned int nb)
 	base = "0123456789ABCDEF";
 	if (nb > 16 - 1)
 		len = len + ft_print_hexa_up(nb / 16);
-	write(1, &base[nb % 16], 1);
+	write(2, &base[nb % 16], 1);
 	return (len);
 }
 
@@ -68,11 +68,11 @@ size_t	ft_print_void_pointer(void *ptr)
 
 	if (!ptr)
 	{
-		write(1, "(nil)", 5);
+		write(2, "(nil)", 5);
 		return (5);
 	}
 	len = 0;
-	write(1, "0x", 2);
+	write(2, "0x", 2);
 	len += 2;
 	len += ft_print_hexa_low((unsigned long)ptr);
 	return (len);

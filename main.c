@@ -6,7 +6,7 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 15:55:57 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/20 17:12:23 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/21 11:00:05 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	initialize_ps(t_ps *ps)
 	ps->bench = malloc(sizeof(t_bench));
 	if (!ps->bench)
 	{
-		free_all(ps);
+		free_all(ps, NULL);
 		return ;
 	}
 	ps->stack_a = NULL;
@@ -68,20 +68,30 @@ void	initialize_ps(t_ps *ps)
 	ps->bench->rrr = 0;
 	ps->bench->total = 0;
 	ps->bench->disorder = 0;
-	ps->bench->strategy_name = NULL;
-	ps->bench->complexity_class = NULL;
+	ps->bench->strategy = NULL;
+	ps->bench->complexity = NULL;
 }
 
-static	void	using_algo_choose(t_ps *ps, t_pars *values, float disorder)
+static	char	*using_algo_choose(t_ps *ps, t_pars *values, float disorder)
 {
-	if (ft_strncmp(values->algo_type, "adaptive", 11) == 0)
-		adaptive(ps, disorder);
-	else if (ft_strncmp(values->algo_type, "simple", 9) == 0)
+	if (ft_strncmp(values->algo_type, "Adaptive", 11) == 0)
+		return (adaptive(ps, disorder));
+	else if (ft_strncmp(values->algo_type, "Simple", 9) == 0)
+	{
 		simple(ps);
-	else if (ft_strncmp(values->algo_type, "medium", 9) == 0)
+		return ("O(n²)");
+	}
+	else if (ft_strncmp(values->algo_type, "Medium", 9) == 0)
+	{
 		medium(ps);
-	else if (ft_strncmp(values->algo_type, "complex", 10) == 0)
+		return ("O(n√n)");
+	}
+	else if (ft_strncmp(values->algo_type, "Complex", 10) == 0)
+	{
 		complex(ps);
+		return ("O(nlog(n))");
+	}
+	return (NULL);
 }
 
 int	main(int argc, char **argv)
@@ -91,26 +101,29 @@ int	main(int argc, char **argv)
 	int		i;
 
 	if (argc < 2)
-		return (0);
+		return (1);
 	values = parsing(argc, argv);
 	if (!values)
-		return (0);
+		return (1);
 	i = 0;
 	initialize_ps(&ps);
 	if (!ps.bench)
-		return ;
+		return (1);
 	while (i < values->counter)
 		stack_add_back(&ps.stack_a, stack_new(values->array[i++], 0));
 	ps.bench->disorder = compute_disorder(ps.stack_a);
 	if (ps.bench->disorder == 0)
 	{
 		free_all(&ps, values);
-		return (0);
+		return (1);
 	}
 	assign_index(ps.stack_a);
-	using_algo_choose(&ps, values, ps.bench->disorder);
+	ps.bench->complexity = using_algo_choose(&ps, values, ps.bench->disorder);
 	if (values->bench)
+	{
+		ps.bench->strategy = values->algo_type;
 		print_bench(&ps);
+	}
 	free_all(&ps, values);
-	return (1);
+	return (0);
 }

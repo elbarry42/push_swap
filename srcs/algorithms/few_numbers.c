@@ -6,7 +6,7 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 18:35:20 by larchimb          #+#    #+#             */
-/*   Updated: 2026/01/20 15:55:15 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/20 17:23:57 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ void	few_numbers(t_ps *ps)
 	lenght = stack_size(ps->stack_a);
 	if (lenght == 2)
 		check_two_nodes(ps);
-	if (lenght == 3)
+	else if (lenght == 3)
 		check_three_nodes(ps);
-	if (lenght > 3)
+	else if (lenght > 3)
 	{
 		while (lenght-- > 3)
 		{

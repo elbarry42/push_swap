@@ -6,7 +6,7 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 17:26:03 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/20 16:53:29 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/20 18:12:24 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ typedef struct s_bench
 	int	rrr;
 	int	total;
 	float	disorder;
-	char  	*strategy_name;
-	char  	*complexity_class;
+	char  	*strategy;
+	char  	*complexity;
 }	t_bench;
 
 typedef struct s_parsing
@@ -68,7 +68,7 @@ int		stack_size(t_stack *stack);
 void	simple(t_ps *ps);
 void	medium(t_ps *ps);
 void	complex(t_ps *ps);
-void	adaptive(t_ps *ps, float disorder);
+char	*adaptive(t_ps *ps, float disorder);
 
 /* swap */
 void	swap(t_stack **stack);
