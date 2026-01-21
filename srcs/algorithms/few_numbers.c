@@ -6,7 +6,7 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 18:35:20 by larchimb          #+#    #+#             */
-/*   Updated: 2026/01/20 17:23:57 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/21 11:04:01 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 static	void	check_two_nodes(t_ps *ps)
 {
 	if (ps->stack_a->value > ps->stack_a->next->value)
-		sa(&ps->stack_a);
+		sa(ps);
 }
 
 static	void	check_three_nodes(t_ps *ps)
 {
 	if (ps->stack_a->value > ps->stack_a->next->value
 		&& ps->stack_a->value > ps->stack_a->next->next->value)
-		ra(&ps->stack_a);
+		ra(ps);
 	else if (ps->stack_a->next->value > ps->stack_a->value
 		&& ps->stack_a->next->value > ps->stack_a->next->next->value)
-		rra(&ps->stack_a);
+		rra(ps);
 	check_two_nodes(ps);
 }
 

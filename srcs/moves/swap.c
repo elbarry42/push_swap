@@ -6,7 +6,7 @@
 /*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 17:38:45 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/15 18:00:51 by elbarry          ###   ########.fr       */
+/*   Updated: 2026/01/20 17:46:34 by elbarry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,33 @@ void	swap(t_stack **stack)
 	*stack = second;
 }
 
-void	sa(t_stack **a)
+void	sa(t_ps *ps)
 {
-	swap(a);
+	if (!ps || !ps->stack_a)
+		return ;
+	swap(&ps->stack_a);
 	write(1, "sa\n", 3);
+	ps->bench->sa++;
 }
 
-void	sb(t_stack **b)
+void	sb(t_ps *ps)
 {
-	swap(b);
+	if (!ps || !ps->stack_b)
+		return ;
+	swap(&ps->stack_b);
 	write(1, "sb\n", 3);
+	ps->bench->sb++;
 }
 
-void	ss(t_stack **a, t_stack **b)
+void	ss(t_ps *ps)
 {
-	swap(a);
-	swap(b);
+	if (!ps)
+		return ;
+	swap(&ps->stack_a);
+	swap(&ps->stack_b);
 	write(1, "ss\n", 3);
+	ps->bench->ss++;
 }
+
+
+
