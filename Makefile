@@ -1,6 +1,6 @@
 NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -MMD -MP -g -I./include
+CFLAGS = -Wall -Wextra -Werror -MMD -MP -I./include
 OBJDIR = .objects
 ALGO = srcs/algorithms/
 UTILS =srcs/utils/

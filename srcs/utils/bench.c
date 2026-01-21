@@ -6,11 +6,10 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 16:11:23 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/20 18:02:25 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/21 11:31:27 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "push_swap.h"
 
 void	print_bench(t_ps *ps)

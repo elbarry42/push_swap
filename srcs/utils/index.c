@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   index.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 11:10:17 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/15 17:59:30 by elbarry          ###   ########.fr       */
+/*   Updated: 2026/01/21 11:30:17 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "push_swap.h"
 
 int	stack_size(t_stack *stack)
 {

@@ -6,30 +6,12 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 15:55:57 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/21 11:00:05 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/21 11:28:33 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "push_swap.h"
-
-void        printf_stacks(t_ps *ps)
-{
-	t_stack	*shuttle;
-
-	shuttle = ps->stack_a;
-	while (shuttle)
-	{
-		ft_printf("A : %d\n", shuttle->value);
-		shuttle = shuttle->next;
-	}
-	shuttle = ps->stack_b;
-	while (shuttle)
-	{
-		ft_printf("B : %d\n", shuttle->value);
-		shuttle = shuttle->next;
-	}
-}
 
 void	free_all(t_ps *ps, t_pars *values)
 {
@@ -74,24 +56,29 @@ void	initialize_ps(t_ps *ps)
 
 static	char	*using_algo_choose(t_ps *ps, t_pars *values, float disorder)
 {
-	if (ft_strncmp(values->algo_type, "Adaptive", 11) == 0)
-		return (adaptive(ps, disorder));
-	else if (ft_strncmp(values->algo_type, "Simple", 9) == 0)
+	if (disorder > 0)
 	{
-		simple(ps);
-		return ("O(n²)");
+		if (ft_strncmp(values->algo_type, "Adaptive", 11) == 0)
+			return (adaptive(ps, disorder));
+		else if (ft_strncmp(values->algo_type, "Simple", 9) == 0)
+		{
+			simple(ps);
+			return ("O(n²)");
+		}
+		else if (ft_strncmp(values->algo_type, "Medium", 9) == 0)
+		{
+			medium(ps);
+			return ("O(n√n)");
+		}
+		else if (ft_strncmp(values->algo_type, "Complex", 10) == 0)
+		{
+			complex(ps);
+			return ("O(nlog(n))");
+		}
+		return (NULL);
 	}
-	else if (ft_strncmp(values->algo_type, "Medium", 9) == 0)
-	{
-		medium(ps);
-		return ("O(n√n)");
-	}
-	else if (ft_strncmp(values->algo_type, "Complex", 10) == 0)
-	{
-		complex(ps);
-		return ("O(nlog(n))");
-	}
-	return (NULL);
+	else
+		return ("");
 }
 
 int	main(int argc, char **argv)
@@ -111,19 +98,18 @@ int	main(int argc, char **argv)
 		return (1);
 	while (i < values->counter)
 		stack_add_back(&ps.stack_a, stack_new(values->array[i++], 0));
+	assign_index(ps.stack_a);
 	ps.bench->disorder = compute_disorder(ps.stack_a);
+	ps.bench->complexity = using_algo_choose(&ps, values, ps.bench->disorder);
+	ps.bench->strategy = values->algo_type;
 	if (ps.bench->disorder == 0)
 	{
+		print_bench(&ps);
 		free_all(&ps, values);
 		return (1);
 	}
-	assign_index(ps.stack_a);
-	ps.bench->complexity = using_algo_choose(&ps, values, ps.bench->disorder);
 	if (values->bench)
-	{
-		ps.bench->strategy = values->algo_type;
 		print_bench(&ps);
-	}
 	free_all(&ps, values);
 	return (0);
 }
