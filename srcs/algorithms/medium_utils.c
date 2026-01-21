@@ -6,11 +6,11 @@
 /*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 14:09:49 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/16 15:13:11 by elbarry          ###   ########.fr       */
+/*   Updated: 2026/01/21 12:23:12 by elbarry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "push_swap.h"
 
 int	get_chunk_count(int size)
 {

@@ -6,11 +6,11 @@
 /*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 14:06:25 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/20 17:53:05 by elbarry          ###   ########.fr       */
+/*   Updated: 2026/01/21 12:23:38 by elbarry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "push_swap.h"
 
 void	rev_rotate(t_stack **stack)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printf_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 12:43:09 by larchimb          #+#    #+#             */
-/*   Updated: 2026/01/20 17:39:16 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/21 12:18:48 by elbarry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_is_charset(char c)
 	return (1);
 }
 
-size_t	ft_putstr(char *str)
+static size_t	ft_putstr(char *str)
 {
 	size_t	i;
 	size_t	len;
@@ -47,13 +47,13 @@ size_t	ft_putstr(char *str)
 	return (len);
 }
 
-size_t	ft_putchar(int c)
+static size_t	ft_putchar(int c)
 {
 	write(2, &c, 1);
 	return (1);
 }
 
-size_t	ft_put_int(int nb)
+static size_t	ft_put_int(int nb)
 {
 	size_t			len;
 	unsigned int	nbr;
