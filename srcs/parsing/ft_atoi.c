@@ -39,12 +39,10 @@ int	ft_atoi_check(const char *ptr)
 	unsigned int	res;
 	int				i;
 	int				nbneg;
-	unsigned int	tmp;
 
 	i = 0;
 	nbneg = 1;
 	res = 0;
-	tmp = 0;
 	if (ptr[i] == '-')
 	{
 		nbneg = -nbneg;

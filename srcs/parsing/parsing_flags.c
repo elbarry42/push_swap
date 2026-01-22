@@ -30,10 +30,10 @@ char	*if_and_which_flags(char *str)
 
 int	check_flag_placement(char **argv, int argc, int i)
 {
-	if (i == 2 && check_number(ft_split(argv[i - 1], ' '), &i) == 1)
+	if (i == 2 && check_number(argv[i - 1]) == 1)
 		return (0);
 	else if (argc >= 4 && i == argc - 2
-		&& check_number(ft_split(argv[i + 1], ' '), &i) == 1)
+		&& check_number(argv[i + 1]) == 1)
 		return (0);
 	else if (argc >= 4 && i > 2 && i < argc - 2)
 		return (0);

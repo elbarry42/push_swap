@@ -6,7 +6,7 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 16:04:56 by larchimb          #+#    #+#             */
-/*   Updated: 2026/01/21 17:36:08 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/22 10:44:48 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@ int		ft_strlcpy(char *dst, const char *src, size_t size);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_atoi(const char *ptr);
 int		ft_atoi_check(const char *ptr);
+int		count_words(char const *s, char c);
 int		call_free(char **array);
-int		check_number(char **array, int *counter);
+int		check_number(char *array);
 int		check_data(int argc, char **argv);
 int		check_duplicate_number(int *array, char **array_alpha, int *i_array);
 size_t	ft_strlen(const char *str);
@@ -31,13 +32,11 @@ char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
 char	*if_and_which_flags(char *str);
 char	*check_flags(char **argv, int argc, int *bench);
+char	*ft_strjoin(char const *s1, char const *s2);
 void	*ft_calloc(size_t nmemb, size_t size);
 void	*ft_bzero(void *s, size_t n);
-
-
-char	*ft_strjoin(char *s1, char *s2);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
-int	count_words(char const *s, char c);
+
 //printf
 size_t	ft_put_unsigned_int(unsigned int nb);
 size_t	ft_print_hexa_low(unsigned long nb);
