@@ -1,19 +1,13 @@
 *This project has been created as part of the 42 curriculum by elbarry and larchimb.*
 
-# push_swap – Sorting Data with Two Stacks 🔁📊
+# push_swap – Sorting Data with Two Stacks
 
-<div align="center">
-
-![42 Badge](https://github.com/elbarry42/elbarry42/blob/main/42_badges/push_swape.png)
-
-</div>
-
-Welcome to **push_swap**! 🚀  
+Welcome to **push_swap**!
 This project is an algorithmic challenge where the goal is to **sort a stack of integers using only two stacks and a restricted set of operations**, while generating the **smallest possible number of instructions**.
 
 It is a core project of the **42 curriculum**, focused on algorithmic complexity, optimization, and low-level reasoning.
 
----
+
 
 ## 📝 Description
 
@@ -31,8 +25,9 @@ This project introduces key concepts such as:
 - Trade-offs between different **sorting strategies**
 - Adaptation of classical algorithms to constrained environments
 - Measuring and exploiting **input disorder**
+- Team work
 
----
+
 
 ## 🎯 Objectives
 
@@ -41,7 +36,7 @@ This project introduces key concepts such as:
 - Optimize sorting strategies based on input characteristics
 - Produce clean, norm-compliant, memory-safe C code
 
----
+
 
 ## 📌 Rules Summary
 
@@ -69,8 +64,17 @@ This project introduces key concepts such as:
 
 ---
 
-## ⚙️ Program Usage
+## ⚙️ Instructions
 
+To use our program you can compil it with our Makefile, it allow you to have the binary file.
+
+```bash
+make
+make clean
+make fclean
+make re
+```
+After you will use this binary with optionals flags to choose the right algorithm.
 ```bash
 ./push_swap [--simple | --medium | --complex | --adaptive] <numbers>
 ````
@@ -80,12 +84,11 @@ This project introduces key concepts such as:
 ```bash
 ./push_swap 2 1 3 6 5 8
 ./push_swap --simple 5 4 3 2 1
-./push_swap --complex 4 67 3 87 23 | ./checker_linux 4 67 3 87 23
+./push_swap --bench --complex 4 67 3 87 23
 ```
 
 If no arguments are given, the program outputs nothing.
 
----
 
 ## 🧠 Algorithmic Strategies
 
@@ -100,8 +103,9 @@ Typical approach:
 * Selection sort–like min extraction
 * Push smallest elements to stack `b`, then back to `a`
 
-✔ Easy to understand
-❌ Inefficient for large inputs
+✔ Easy to understand but inefficient for large inputs
+
+✔ Concept very easy to code because of his simplicity
 
 ---
 
@@ -114,7 +118,10 @@ Chunk-based strategy:
 * Reinsert them in correct order
 
 ✔ Good balance between simplicity and performance
+
 ✔ Suitable for medium-sized inputs
+
+✔ Easy to implement, more efficient because it sorts by chunks
 
 ---
 
@@ -125,10 +132,13 @@ High-performance strategy for large or highly disordered inputs.
 Example approaches:
 
 * Radix sort adaptation
-* Binary representation and bitwise passes
+* Binary representation
 
 ✔ Excellent scalability
+
 ✔ Used for large random datasets
+
+✔ We started to implement a Quick Sort algorithm but we didn't manage to use recursivity to make it work, finally Radix option was definitely easier
 
 ---
 
@@ -150,7 +160,7 @@ Depending on the disorder:
 
 This adaptive behavior allows the program to **automatically choose the most efficient strategy** for each input.
 
----
+
 
 ## 📊 Benchmark Mode
 
@@ -167,49 +177,6 @@ Example:
 ./push_swap --bench --adaptive 4 67 3 87 23
 ```
 
----
-
-## 📁 Project Structure
-
-### Mandatory Part
-
-```
-Makefile
-includes/
-srcs/
-```
-
-* Fully norm-compliant
-* No global variables
-* Memory leaks forbidden
-
-### Bonus Part
-
-```
-checker.c
-checker_utils.c
-```
-
-The checker reads operations from stdin and verifies whether the stacks are correctly sorted.
-
----
-
-## 🛠️ Compilation
-
-```bash
-make
-make clean
-make fclean
-make re
-```
-
-Compiled with:
-
-```bash
--Wall -Wextra -Werror
-```
-
----
 
 ## 🚫 Error Handling
 
@@ -218,18 +185,10 @@ The program prints `Error\n` to **stderr** if:
 * Arguments are not integers
 * Values exceed integer limits
 * Duplicate numbers are detected
-* Invalid instructions (checker)
+* Invalid instructions (non-digit argument, void argument)
 
----
 
-## 📈 Performance Targets
 
-| Input Size  | Passing | Good   | Excellent |
-| ----------- | ------- | ------ | --------- |
-| 100 numbers | < 2000  | < 1500 | < 700     |
-| 500 numbers | < 12000 | < 8000 | < 5500    |
-
----
 
 ## 📚 Resources
 
@@ -237,22 +196,13 @@ The program prints `Error\n` to **stderr** if:
 * Stack data structures
 * Radix sort
 * Chunk-based sorting strategies
+* https://en.wikipedia.org/wiki/Merge_sort
+* https://www.geeksforgeeks.org/dsa/radix-sort/
+
 
 ### 🤖 AI Usage
 
 AI tools were used **only for documentation, explanations, and README structuring**.
 All algorithms, logic, and implementation choices were **designed and coded manually**, in full compliance with the **42 AI policy**.
 
----
 
-## 📦 Submission Notes
-
-* This is a **group project**
-* Both contributors are listed and understand the full codebase
-* All required files are present in the repository
-* Only repository content is evaluated
-
----
-
-✨ Thanks for checking out our **push_swap** project!
-Sorting smart beats sorting hard 💡🔥
