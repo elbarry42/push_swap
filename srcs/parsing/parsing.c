@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 17:06:25 by larchimb          #+#    #+#             */
-/*   Updated: 2026/01/22 13:12:12 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/22 14:10:30 by elbarry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static	char	**clean_argv(int *argc, char **argv)
 		ptr = ft_strjoin(ptr, argv[i++]);
 		free(tmp);
 		if (!ptr)
-			return(NULL);
+			return (NULL);
 	}
 	*argc = count_words(ptr, ' ');
 	array = ft_split(ptr, ' ');

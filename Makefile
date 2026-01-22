@@ -19,7 +19,6 @@ SRCS =	$(ALGO)adaptive.c $(ALGO)complex.c $(ALGO)medium.c $(ALGO)simple.c $(ALGO
 		$(PARSING)ft_split.c $(PARSING)ft_strlcpy.c $(PARSING)ft_strlen.c \
 		$(PARSING)ft_strncmp.c $(PARSING)ft_strjoin.c $(PARSING)ft_memcpy.c \
 		main.c
-SRCS_BONUS = $(CHECKER)checker.c $(CHECKER)checker_utils.c \
 
 OBJS = $(addprefix $(OBJDIR)/,$(notdir $(SRCS:.c=.o)))
 DEPS = $(addprefix $(OBJDIR)/,$(notdir $(SRCS:.c=.d)))
