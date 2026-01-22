@@ -6,13 +6,13 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 11:33:47 by larchimb          #+#    #+#             */
-/*   Updated: 2026/01/15 15:25:31 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/21 16:25:47 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	int	count_words(char const *s, char c)
+int	count_words(char const *s, char c)
 {
 	int	counter;
 	int	i;

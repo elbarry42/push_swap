@@ -6,7 +6,7 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 16:04:56 by larchimb          #+#    #+#             */
-/*   Updated: 2026/01/21 13:39:43 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/21 17:36:08 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,11 @@ char	*if_and_which_flags(char *str);
 char	*check_flags(char **argv, int argc, int *bench);
 void	*ft_calloc(size_t nmemb, size_t size);
 void	*ft_bzero(void *s, size_t n);
+
+
+char	*ft_strjoin(char *s1, char *s2);
+void	*ft_memcpy(void *dest, const void *src, size_t n);
+int	count_words(char const *s, char c);
 //printf
 size_t	ft_put_unsigned_int(unsigned int nb);
 size_t	ft_print_hexa_low(unsigned long nb);

@@ -6,7 +6,7 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 15:55:57 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/21 13:48:44 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/21 13:51:05 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ static void	free_all(t_ps *ps, t_pars *values)
 	}
 	free(ps->bench);
 }
+
 static	int	total_ops(t_bench *bench)
 {
 	int	total;
