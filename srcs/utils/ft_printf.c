@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 10:24:30 by larchimb          #+#    #+#             */
-/*   Updated: 2026/01/21 12:19:44 by elbarry          ###   ########.fr       */
+/*   Updated: 2026/01/22 12:11:51 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ int	ft_printf(const char *str, ...)
 		}
 		else
 		{
-			write(1, &str[i++], 1);
+			write(2, &str[i++], 1);
 			counter++;
 		}
 	}

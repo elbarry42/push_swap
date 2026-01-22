@@ -6,7 +6,7 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 17:06:25 by larchimb          #+#    #+#             */
-/*   Updated: 2026/01/21 17:26:24 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/22 13:12:12 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ static t_pars	*is_error(t_pars *values, char **argv)
 	i = 0;
 	write(2, "Error\n", 6);
 	free(values);
+	if (!argv)
+		return (NULL);
 	while (argv[i])
 		free(argv[i++]);
 	free(argv);
@@ -34,12 +36,14 @@ static	char	**clean_argv(int *argc, char **argv)
 	char	**array;
 
 	i = 0;
-	ptr = ft_strjoin(argv[i++], "");
+	ptr = ft_strjoin(argv[i++], " ");
 	while (i < *argc)
 	{
 		tmp = ptr;
 		ptr = ft_strjoin(ptr, argv[i++]);
 		free(tmp);
+		if (!ptr)
+			return(NULL);
 	}
 	*argc = count_words(ptr, ' ');
 	array = ft_split(ptr, ' ');
@@ -84,6 +88,8 @@ t_pars	*parsing(int argc, char **argv)
 	values->algo_type = NULL;
 	values->array = NULL;
 	argv = clean_argv(&argc, argv);
+	if (!argv)
+		return (is_error(values, argv));
 	values->algo_type = check_flags(argv, argc, &values->bench);
 	values->counter = check_data(argc, argv);
 	if (values->counter == 0 || values->algo_type == NULL)

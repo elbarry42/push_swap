@@ -6,7 +6,7 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 13:35:51 by larchimb          #+#    #+#             */
-/*   Updated: 2026/01/21 13:59:04 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/22 11:50:59 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*adaptive(t_ps *ps, float disorder)
 		medium(ps);
 		return ("O(n√n)");
 	}
-	else if (disorder > 0.5)
+	else if (disorder >= 0.5)
 	{
 		complex(ps);
 		return ("O(nlog(n))");
