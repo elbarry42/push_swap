@@ -9,7 +9,7 @@ PARSING = srcs/parsing/
 CHECKER = srcs/checker/
 RM = rm -f
 
-VPATH = $(ALGO) $(UTILS) $(MOVES) $(PARSING) $(CHECKER)
+VPATH = $(ALGO) $(UTILS) $(MOVES) $(PARSING)
 SRCS =	$(ALGO)adaptive.c $(ALGO)complex.c $(ALGO)medium.c $(ALGO)simple.c $(ALGO)medium_utils.c $(ALGO)few_numbers.c \
 		$(UTILS)index.c $(UTILS)bench.c $(UTILS)disorder.c $(UTILS)stack.c $(UTILS)utils.c \
 		$(UTILS)ft_printf.c $(UTILS)printf_utils.c \

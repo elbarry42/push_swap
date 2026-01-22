@@ -6,7 +6,7 @@
 /*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 17:26:03 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/22 10:45:16 by larchimb         ###   ########.fr       */
+/*   Updated: 2026/01/22 14:47:32 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,9 +106,5 @@ int		position_of_index(t_stack *stack, int target_index);
 int		find_smallest_number(t_ps *ps);
 int		position_of_next_chunk(t_stack *a, int min, int max);
 float	compute_disorder(t_stack *a);
-
-/* checker */
-int		is_sorted(t_stack *a);
-int		stack_is_empty(t_stack *b);
 
 #endif

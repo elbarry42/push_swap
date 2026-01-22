@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 17:06:25 by larchimb          #+#    #+#             */
-/*   Updated: 2026/01/22 14:10:30 by elbarry          ###   ########.fr       */
+/*   Updated: 2026/01/22 15:38:12 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static	char	**clean_argv(int *argc, char **argv)
 	char	**array;
 
 	i = 0;
-	ptr = ft_strjoin(argv[i++], " ");
+	ptr = ft_strjoin(argv[i++], "1");
 	while (i < *argc)
 	{
 		tmp = ptr;

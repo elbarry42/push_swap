@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   medium.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: larchimb <larchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 10:17:53 by elbarry           #+#    #+#             */
-/*   Updated: 2026/01/21 12:37:28 by elbarry          ###   ########.fr       */
+/*   Updated: 2026/01/22 15:42:07 by larchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,14 @@ static void	push_back_to_a(t_ps *ps)
 
 void	medium(t_ps *ps)
 {
+	int	lenght;
+
+	lenght = stack_size(ps->stack_a);
+	if (lenght <= 5)
+	{
+		few_numbers(ps);
+		return ;
+	}
 	if (!ps || !(ps)->stack_a)
 		return ;
 	push_chunks(ps);
