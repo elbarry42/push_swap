@@ -25,7 +25,7 @@ DEPS = $(addprefix $(OBJDIR)/,$(notdir $(SRCS:.c=.d)))
 
 all: $(NAME)
 
-$(NAME): $(OBJS) | Makefile
+$(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $@
 
 $(OBJDIR)/%.o:%.c | $(OBJDIR)
