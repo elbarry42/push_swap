@@ -1,52 +1,55 @@
-*This project has been created as part of the 42 curriculum by elbarry and larchimb.*
+````md
+<*This project has been created as part of the 42 curriculum by elbarry and larchimb.*>
 
-# push_swap – Sorting Data with Two Stacks
+# 🧠 push_swap – Sorting Data with Two Stacks
 
-Welcome to **push_swap**!
-This project is an algorithmic challenge where the goal is to **sort a stack of integers using only two stacks and a restricted set of operations**, while generating the **smallest possible number of instructions**.
+Welcome to **push_swap**!  
+This project is an algorithmic challenge where the goal is to **sort a stack of integers using only two stacks and a restricted set of operations**, while producing the **smallest possible number of instructions**.
 
-It is a core project of the **42 curriculum**, focused on algorithmic complexity, optimization, and low-level reasoning.
+It is a core project of the **42 curriculum**, focused on **algorithmic complexity, optimization, and low-level reasoning**.
 
-
+---
 
 ## 📝 Description
 
-The **push_swap** project consists of writing a C program that outputs a sequence of operations to sort a list of integers given as arguments.
+The **push_swap** program takes a list of integers as input and outputs a sequence of operations to sort them.
 
 Constraints make the problem challenging:
 
-- Only **two stacks** are allowed (`a` and `b`)
-- Only a **limited set of operations** can be used
-- The goal is not just to sort, but to **sort efficiently**
+- 🔹 Only **two stacks** are allowed (`a` and `b`)
+- 🔹 Only a **limited set of operations**
+- 🔹 The goal is not only correctness, but **efficiency**
 
-This project introduces key concepts such as:
+This project introduces concepts such as:
 
-- Algorithmic **time complexity**
-- Trade-offs between different **sorting strategies**
-- Adaptation of classical algorithms to constrained environments
-- Measuring and exploiting **input disorder**
-- Team work
+- 📈 Algorithmic **time complexity**
+- 🧩 Optimization strategies
+- 🔄 Adapting classic algorithms to constrained rules
+- 📊 Measuring and exploiting **input disorder**
+- 🤝 Team work and clean architecture
 
-
+---
 
 ## 🎯 Objectives
 
 - Understand how algorithm choices impact performance
-- Compare multiple complexity classes in a concrete setting
-- Optimize sorting strategies based on input characteristics
-- Produce clean, norm-compliant, memory-safe C code
+- Compare different complexity classes in practice
+- Optimize strategies based on input characteristics
+- Write clean, norm-compliant, memory-safe C code
 
-
+---
 
 ## 📌 Rules Summary
 
 - Stack **a** contains the input integers (no duplicates)
 - Stack **b** starts empty
-- Numbers must be sorted in **ascending order** in stack `a`
-- Operations must be printed to **stdout**, one per line
-- No global variables allowed
+- Stack `a` must be sorted in **ascending order**
+- Operations are printed to **stdout**, one per line
+- ❌ No global variables
 
-### Allowed Operations
+---
+
+## 🔧 Allowed Operations
 
 | Operation | Description |
 |---------|-------------|
@@ -64,22 +67,24 @@ This project introduces key concepts such as:
 
 ---
 
-## ⚙️ Instructions
+## ⚙️ Compilation & Usage
 
-To use our program you can compil it with our Makefile, it allow you to have the binary file.
+Compile the project using the provided Makefile:
 
 ```bash
 make
 make clean
 make fclean
 make re
-```
-After you will use this binary with optionals flags to choose the right algorithm.
-```bash
-./push_swap [--simple | --medium | --complex | --adaptive] <numbers>
 ````
 
-### Examples
+Run the program with the desired strategy:
+
+```bash
+./push_swap [--simple | --medium | --complex | --adaptive] <numbers>
+```
+
+### 📌 Examples
 
 ```bash
 ./push_swap 2 1 3 6 5 8
@@ -89,87 +94,75 @@ After you will use this binary with optionals flags to choose the right algorith
 
 If no arguments are given, the program outputs nothing.
 
+---
 
 ## 🧠 Algorithmic Strategies
 
-This project embeds **four distinct sorting strategies**, all implemented in C and selectable at runtime.
+This project implements **four sorting strategies**, selectable at runtime.
 
-### 1️⃣ Simple Algorithm – **O(n²)**
+### 1️⃣ Simple – **O(n²)**
 
-Baseline strategy used mainly for small inputs.
+A basic algorithm mainly used for small inputs.
 
-Typical approach:
+* Repeated minimum extraction
+* Push to stack `b`, then back to `a`
 
-* Selection sort–like min extraction
-* Push smallest elements to stack `b`, then back to `a`
-
-✔ Easy to understand but inefficient for large inputs
-
-✔ Concept very easy to code because of his simplicity
+✔ Easy to understand
+✘ Inefficient for large inputs
 
 ---
 
-### 2️⃣ Medium Algorithm – **O(n√n)**
+### 2️⃣ Medium – **O(n√n)**
 
 Chunk-based strategy:
 
-* Divide the input into √n chunks
-* Push elements chunk by chunk to stack `b`
-* Reinsert them in correct order
+* Split input into chunks
+* Push chunk by chunk into stack `b`
+* Reinsert in sorted order
 
 ✔ Good balance between simplicity and performance
-
 ✔ Suitable for medium-sized inputs
 
-✔ Easy to implement, more efficient because it sorts by chunks
-
 ---
 
-### 3️⃣ Complex Algorithm – **O(n log n)**
+### 3️⃣ Complex – **O(n log n)**
 
-High-performance strategy for large or highly disordered inputs.
-
-Example approaches:
+High-performance strategy for large inputs.
 
 * Radix sort adaptation
-* Binary representation
+* Binary index processing
 
+✔ Very efficient
 ✔ Excellent scalability
-
-✔ Used for large random datasets
-
-✔ We started to implement a Quick Sort algorithm but we didn't manage to use recursivity to make it work, finally Radix option was definitely easier
 
 ---
 
-### 4️⃣ Adaptive Algorithm – **Custom Design**
+### 4️⃣ Adaptive – **Dynamic Strategy**
 
-Before sorting, the program computes a **disorder metric** (value between 0 and 1).
+Before sorting, the program computes a **disorder value** between `0` and `1`.
 
-#### Disorder definition
+#### 📊 Disorder definition
 
 The disorder measures how far the input is from being sorted by counting inverted pairs.
 
-Depending on the disorder:
+| Disorder Range | Strategy Used           | Complexity     |
+| -------------- | ----------------------- | -------------- |
+| `< 0.2`        | Optimized simple method | **O(n)**       |
+| `0.2 – 0.5`    | Medium chunk-based      | **O(n√n)**     |
+| `≥ 0.5`        | Complex algorithm       | **O(n log n)** |
 
-| Disorder Range | Strategy Used                    | Complexity     |
-| -------------- | -------------------------------- | -------------- |
-| `< 0.2`        | Linear / optimized simple method | **O(n)**       |
-| `0.2 – 0.5`    | Chunk-based method               | **O(n√n)**     |
-| `≥ 0.5`        | Complex algorithm                | **O(n log n)** |
+👉 The program automatically selects the most efficient strategy.
 
-This adaptive behavior allows the program to **automatically choose the most efficient strategy** for each input.
-
-
+---
 
 ## 📊 Benchmark Mode
 
-Using the `--bench` flag, the program displays performance metrics to **stderr**:
+Using the `--bench` flag, performance data is printed to **stderr**:
 
-* Computed disorder (percentage)
-* Selected strategy and complexity class
-* Total number of operations
-* Count of each operation type
+* 📉 Computed disorder
+* 🧠 Selected strategy & complexity class
+* 🔢 Total number of operations
+* 📋 Count of each operation
 
 Example:
 
@@ -177,32 +170,32 @@ Example:
 ./push_swap --bench --adaptive 4 67 3 87 23
 ```
 
+---
 
 ## 🚫 Error Handling
 
 The program prints `Error\n` to **stderr** if:
 
-* Arguments are not integers
-* Values exceed integer limits
-* Duplicate numbers are detected
-* Invalid instructions (non-digit argument, void argument)
+* ❌ Arguments are not integers
+* ❌ Values exceed integer limits
+* ❌ Duplicate numbers are detected
+* ❌ Invalid input is provided
 
-
-
+---
 
 ## 📚 Resources
 
-* Analysis of Algorithms (Big-O notation)
-* Stack data structures
-* Radix sort
-* Chunk-based sorting strategies
-* https://en.wikipedia.org/wiki/Merge_sort
-* https://www.geeksforgeeks.org/dsa/radix-sort/
+* 📖 Algorithm complexity (Big-O notation)
+* 📦 Stack data structures
+* 🔢 Radix sort
+* 🧩 Chunk-based sorting
+* [https://en.wikipedia.org/wiki/Radix_sort](https://en.wikipedia.org/wiki/Radix_sort)
+* [https://www.geeksforgeeks.org/dsa/radix-sort/](https://www.geeksforgeeks.org/dsa/radix-sort/)
 
+---
 
-### 🤖 AI Usage
+## 🤖 AI Usage
 
 AI tools were used **only for documentation, explanations, and README structuring**.
-All algorithms, logic, and implementation choices were **designed and coded manually**, in full compliance with the **42 AI policy**.
-
+All algorithms and implementation choices were **designed and coded manually**, in full compliance with the **42 AI policy**.
 
